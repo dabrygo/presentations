@@ -1,8 +1,8 @@
 # tutorials
 
-# intro to python
+## intro to python
 
-## Philosophy / Environments
+### Philosophy / Environments
   * PEP-8
   * Zen of Python
   * IDLE
@@ -10,21 +10,21 @@
   * `help`
   * PyMotW
 
-## Strings
+### Strings
   * Formatting
     * `%`
     * `.format()`
     * `f'{}'`
   * Unicode
 
-## Collections/Containers
+### Collections/Containers
   * Tuple
   * List
   * Set
   * Dict
   * Comprehensions
 
-## Math / operations
+### Math / operations
   * Set operations
   * `+/*` on lists
   * `**`
@@ -37,11 +37,11 @@
   * float
   * matrices?
 
-## File I/O
+### File I/O
   * with/open/as
   * csv
 
-## Functions
+### Functions
   * arguments
   * `*`
   * lambda
@@ -49,7 +49,7 @@
   * keyword arguments
   * default arguments
 
-## Exceptions
+### Exceptions
   * assert
   * try / except
   * raise
@@ -65,7 +65,7 @@
     * TypeError
     * https://docs.python.org/3/library/exceptions.html
 
-## Builtins / Reserved Words
+### Builtins / Reserved Words
   * abs
   * chr
   * del?
@@ -83,7 +83,7 @@
   * yield
   * zip
 
-## OOP
+### OOP
   * Classes
   * Constructors
   * Inheritance
@@ -91,11 +91,11 @@
   * properties?
   * dunder methods
 
-## Packages / modules
+### Packages / modules
   * `__init__.py`
   * from / import / as
 
-## Important stdlib
+### Important stdlib
   * argparse
   * collections
   * datetime
@@ -106,13 +106,13 @@
   * random
   * string
 
-## Plots
+### Plots
   * matplotlib
 
-## GUIs
+### GUIs
   * Tkinter
   * PyQt
 
-## 3rd party libraries
+### 3rd party libraries
   * pip
   * astropy (FITS)
