@@ -1,9 +1,31 @@
 \documentclass{beamer}
 
+\usepackage{color}
 \usepackage{graphicx}
 \usepackage{hyperref}
 \usepackage{listings}
 \usepackage{minted}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
 
 \title[Intro to Python]{Philosophy and Fundamentals}
 \begin{document}
@@ -135,6 +157,76 @@
     \frametitle{Hello World}
     \inputminted{python}{hello.py}
   \end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Python Idioms: Chained Conditions}
+  \textbf{Python}
+  \inputminted{python}{ordered_units.py}
+  
+  \textbf{Naive Java Implementation}
+  \begin{lstlisting}
+    bool areOrderedUnits(double x, double y) {
+      return 0 <= x && x < y && y <= 1;
+    }
+  \end{lstlisting}
+\end{frame}
+
     
+\begin{frame}[fragile]
+  \frametitle{Python Idioms: Swap Values}
+  \begin{columns}
+  \begin{column}{0.5\textwidth}
+    \textbf{Python}
+    \inputminted{python}{swap.py}
+  \end{column}
+  \begin{column}{0.5\textwidth}
+  \textbf{Naive Java Implementation}
+  \begin{lstlisting}
+    int a = 1, b = 2;
+    int temp = a;
+    b = a;
+    a = temp;
+  \end{lstlisting}
+  \end{column}
+  \end{columns}
+\end{frame}
+
+% TODO Better example (doesn't handle multi-word last names)
+%\begin{frame}[fragile]
+%  \frametitle{Python Idioms: Unpacking}
+%  \textbf{Python}
+%  \inputminted{python}{last_name_first_name.py}
+%
+%  \textbf{Naive Java Implementation}
+%  \begin{lstlisting}
+%    String[] names = "John Ronald Reuel Tolkien".split(" ");
+%    String first = names[0];
+%    String last = names[names.length - 1];
+%    System.out.println(last + ", " + first);
+%  \end{lstlisting}
+%\end{frame}
+
+
+
+\begin{frame}[fragile]
+  \frametitle{Python Idioms: Exponentiation}
+  \textbf{Python}
+  \inputminted{python}{exponentiation.py}
+  
+  \textbf{Naive Java Implementation}
+  \begin{lstlisting}
+    List<Integer> exp = new ArrayList<>();
+    for (int n = 1; n <= 10; n++) {
+      Integer nToTheN = Math.pow(n, n);
+      exp.add(nToTheN);
+    }
+  \end{lstlisting}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Caesar Cipher}
+  \inputminted{python}{caesar.py}
+\end{frame}
 \end{document}
 
