@@ -31,6 +31,7 @@
 \begin{document}
 \frame{\titlepage}
 
+
 \begin{frame}
   \frametitle{Background}
   \begin{enumerate}
@@ -55,6 +56,7 @@
   \end{figure}
 \end{frame}
 
+
 \begin{frame}
   \frametitle{Things You Might Hear\ldots}
   \begin{itemize}
@@ -68,18 +70,8 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}
-\begin{figure}
-  \begin{center}
-    \includegraphics[height=200pt,keepaspectratio]{xkcd_python.png}
-    \caption
-    {
-      Python\footnote{\url{www.xkcd.com/353}} 
-    }
-    \end{center}
-  \end{figure}
-\end{frame}
- 
+
+
 \begin{frame}
  \frametitle{Zen of Python Part I (\texttt{import this})}
  \begin{columns}
@@ -108,6 +100,7 @@
  \end{columns}
 \end{frame}
 
+
 \begin{frame}
   \frametitle{Zen of Python Part II (\texttt{import this})}
   \begin{columns}
@@ -132,19 +125,34 @@
  \end{columns}
 \end{frame}
 
+
 \begin{frame}
   \frametitle{Defining Features}
   \begin{enumerate}
     \item Whitespace for scope instead of keywords or braces
+    \item English-like syntax
     \item Duck-typing
     \item Interactive mode (\textsc{repl})
     \item Scripts, functions, and classes
-    \item English-like syntax
     \item Rapid development
     \item Open source
     \item ``Glue'' language
   \end{enumerate}
 \end{frame}
+
+
+\begin{frame}
+\begin{figure}
+  \begin{center}
+    \includegraphics[height=200pt,keepaspectratio]{xkcd_python.png}
+    \caption
+    {
+      Python\footnote{\url{www.xkcd.com/353}} 
+    }
+    \end{center}
+  \end{figure}
+\end{frame}
+ 
 
 \begin{frame}
   \frametitle{PEP 8 Style Guide}
@@ -153,25 +161,64 @@
   \end{enumerate}
 \end{frame}
 
+
 \begin{frame}
   \frametitle{Hello World}
   \inputminted{python}{hello.py}
 \end{frame}
 
-\begin{frame}[fragile]
-  \frametitle{Python Idioms: Chained Conditions}
-  \textbf{Python}
-  \inputminted{python}{ordered_units.py}
-  
-  \textbf{Naive Java Implementation}
-  \begin{lstlisting}
-    bool areOrderedUnits(double x, double y) {
-      return 0 <= x && x < y && y <= 1;
-    }
-  \end{lstlisting}
+
+\begin{frame}
+  \frametitle{Help}
+  Built-in function for getting help on almost \textit{anything} in Python
+  \begin{itemize}
+    \item Built-in Functions: \lstinline{help(print)}
+    \item Variables: \lstinline{foo = "hello"; help(foo)}
+    \item Types: \lstinline{help(str)}
+    \item Class Functions (Methods): \lstinline{help(str.upper)}
+    \item Modules (Files): \lstinline{import string; help(string)}
+    \item Reserved Words: \lstinline{help("if")}
+    \item Operators: \lstinline{help("**")}
+  \end{itemize}
 \end{frame}
 
-    
+\begin{frame}
+  \frametitle{Closer Look at a Help Page (Function)}
+  Let's look at the \texttt{print} function's 
+  documentation
+
+  \lstinline{help(print)}
+
+  \begin{itemize}
+    \item Signature
+    \item Description
+    \item Arguments
+    \item Optional arguments
+    \item Keyword arguments
+    \item Default values
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Closer Look at a Help Page (Module)}
+  Let's look at the \texttt{string} module's 
+  documentation
+
+  \lstinline{import string; help(string)}
+
+  \begin{itemize}
+    \item Name (and brief description)
+    \item Description (of module variables)
+    \item Classes and their methods
+    \item Functions
+    \item Data (the values of module variables)
+    \item File (where the \texttt{string} module is on our system)
+   \end{itemize}
+
+\end{frame}
+
 \begin{frame}[fragile]
   \frametitle{Python Idioms: Swap Values}
   \begin{columns}
@@ -191,23 +238,6 @@
   \end{columns}
 \end{frame}
 
-% TODO Better example (doesn't handle multi-word last names)
-%\begin{frame}[fragile]
-%  \frametitle{Python Idioms: Unpacking}
-%  \textbf{Python}
-%  \inputminted{python}{last_name_first_name.py}
-%
-%  \textbf{Naive Java Implementation}
-%  \begin{lstlisting}
-%    String[] names = "John Ronald Reuel Tolkien".split(" ");
-%    String first = names[0];
-%    String last = names[names.length - 1];
-%    System.out.println(last + ", " + first);
-%  \end{lstlisting}
-%\end{frame}
-
-
-
 \begin{frame}[fragile]
   \frametitle{Python Idioms: Exponentiation}
   \textbf{Python}
@@ -223,7 +253,19 @@
   \end{lstlisting}
 \end{frame}
 
-
+\begin{frame}[fragile]
+  \frametitle{Python Idioms: Chained Conditions}
+  \textbf{Python}
+  \inputminted{python}{ordered_units.py}
+  
+  \textbf{Naive Java Implementation}
+  \begin{lstlisting}
+    bool areOrderedUnits(double x, double y) {
+      return 0 <= x && x < y && y <= 1;
+    }
+  \end{lstlisting}
+\end{frame}
+ 
 \begin{frame}
   \frametitle{Caesar Cipher}
   \inputminted{python}{caesar.py}
