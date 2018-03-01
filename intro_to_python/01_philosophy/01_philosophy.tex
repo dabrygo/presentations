@@ -60,13 +60,13 @@
 \begin{frame}
   \frametitle{Things You Might Hear\ldots}
   \begin{itemize}
+    \item Pythonic
     \item ``Batteries included''
     \item ``We're all adults here''
     \item ``There's only one (obvious) way to do it''
     \item \textsc{tsttcpw} (the simplest thing that could possibly work)
     \item Guido's time machine
     \item Pythonista
-    \item Pythonic
   \end{itemize}
 \end{frame}
 
@@ -133,8 +133,8 @@
     \item English-like syntax
     \item Duck-typing
     \item Interactive mode (\textsc{repl})
-    \item Scripts, functions, and classes
     \item Rapid development
+    \item Scripts, functions, and classes
     \item Open source
     \item ``Glue'' language
   \end{enumerate}
@@ -152,14 +152,6 @@
     \end{center}
   \end{figure}
 \end{frame}
- 
-
-\begin{frame}
-  \frametitle{PEP 8 Style Guide}
-  \begin{enumerate}
-    \item 4 spaces per indentation level
-  \end{enumerate}
-\end{frame}
 
 
 \begin{frame}
@@ -167,20 +159,6 @@
   \inputminted{python}{hello.py}
 \end{frame}
 
-
-\begin{frame}
-  \frametitle{Help}
-  Built-in function for getting help on almost \textit{anything} in Python
-  \begin{itemize}
-    \item Built-in Functions: \lstinline{help(print)}
-    \item Variables: \lstinline{foo = "hello"; help(foo)}
-    \item Types: \lstinline{help(str)}
-    \item Class Functions (Methods): \lstinline{help(str.upper)}
-    \item Modules (Files): \lstinline{import string; help(string)}
-    \item Reserved Words: \lstinline{help("if")}
-    \item Operators: \lstinline{help("**")}
-  \end{itemize}
-\end{frame}
 
 \begin{frame}
   \frametitle{Closer Look at a Help Page (Function)}
@@ -218,6 +196,40 @@
    \end{itemize}
 
 \end{frame}
+
+
+\begin{frame}
+  \frametitle{Help}
+  Built-in function for getting help on almost \textit{anything} in Python
+  \begin{itemize}
+    \item Built-in Functions: \lstinline{help(print)}
+    \item Variables: \lstinline{foo = "hello"; help(foo)}
+    \item Types: \lstinline{help(str)}
+    \item Class Functions (Methods): \lstinline{help(str.upper)}
+    \item Modules (Files): \lstinline{import string; help(string)}
+    \item Reserved Words: \lstinline{help("if")}
+    \item Operators: \lstinline{help("**")}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{Python Idioms: Keyword Arguments}
+  \textbf{Python}
+  \inputminted{python}{keyword.py}
+  
+  \textbf{Naive Java Implementation}
+  \begin{lstlisting}
+    bool equal(double a, double b) {
+      return equal(a, b, 1e-15); 
+    }
+
+    bool equal(double a, double b, double delta) {
+      return Math.abs(a - b) <= delta;
+    }
+   \end{lstlisting}
+\end{frame}
+  
 
 \begin{frame}[fragile]
   \frametitle{Python Idioms: Swap Values}
@@ -265,7 +277,21 @@
     }
   \end{lstlisting}
 \end{frame}
- 
+
+\begin{frame}[fragile]
+  \frametitle{Python Idioms: Ternary Operator}
+  \textbf{Python}
+  \inputminted{python}{ternary.py}
+  
+  \textbf{Naive Java Implementation}
+  \begin{lstlisting}[escapeinside={(*}{*)}]
+    String parity(int number) {
+      return (number (*\%*) 2 == 0) ? "Even" : "Odd";
+    }
+  \end{lstlisting}
+\end{frame}
+
+
 \begin{frame}
   \frametitle{Caesar Cipher}
   \inputminted{python}{caesar.py}
