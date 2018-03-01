@@ -1,12 +1,16 @@
 \documentclass{beamer}
 
+\usepackage{color}
 \usepackage{graphicx}
 \usepackage{hyperref}
 \usepackage{listings}
 \usepackage{minted}
 
 
-\title[Intro to Python]{Strings}
+\title{IntroPy}
+\subtitle{Strings}
+
+
 \begin{document}
 \frame{\titlepage}
 
@@ -24,12 +28,34 @@
 % * str
 
 
-
 \begin{frame}
   \frametitle{Background}
   \begin{itemize}
-    \item Single- or double-quotes (\texttt{'string'} or \texttt{"string"})
-  \end{itemize}
+    \item Single- or double-quotes
+      \begin{itemize}
+        \item \lstinline{'hello world'} 
+	\item \lstinline{"hello world"}
+      \end{itemize}
+
+    \item Three-quote pairs for multiline text
+%    \inputminted{python}{multiline.py}
+
+    \item Special characters start with \textbackslash, e.g.: 
+      \begin{itemize}
+        \item ``\textbackslash n'' (newline)
+	\item ``\textbackslash t'' (tab) 
+      \end{itemize}
+
+    \item \textbackslash \textbackslash~ escapes backslash 
+      \begin{itemize}
+        \item \lstinline{'C:\\\\Users'}
+      \end{itemize}
+
+    \item Characters after \textbackslash~ aren't special if string starts with r
+      \begin{itemize}
+        \item \lstinline{r'C:\\Users'}
+      \end{itemize}
+ \end{itemize}
 \end{frame}
 
 \end{document}
