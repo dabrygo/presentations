@@ -214,24 +214,6 @@
 
 
 \begin{frame}[fragile]
-  \frametitle{Python Idioms: Keyword Arguments}
-  \textbf{Python}
-  \inputminted{python}{keyword.py}
-  
-  \textbf{Naive Java Implementation}
-  \begin{lstlisting}
-    bool equal(double a, double b) {
-      return equal(a, b, 1e-15); 
-    }
-
-    bool equal(double a, double b, double delta) {
-      return Math.abs(a - b) <= delta;
-    }
-   \end{lstlisting}
-\end{frame}
-  
-
-\begin{frame}[fragile]
   \frametitle{Python Idioms: Swap Values}
   \begin{columns}
   \begin{column}{0.5\textwidth}
@@ -239,7 +221,7 @@
     \inputminted{python}{swap.py}
   \end{column}
   \begin{column}{0.5\textwidth}
-  \textbf{Naive Java Implementation}
+  \textbf{Naive Java Idiom}
   \begin{lstlisting}
     int a = 1, b = 2;
     int temp = a;
@@ -255,7 +237,7 @@
   \textbf{Python}
   \inputminted{python}{exponentiation.py}
   
-  \textbf{Naive Java Implementation}
+  \textbf{Naive Java Idiom}
   \begin{lstlisting}
     List<Integer> exp = new ArrayList<>();
     for (int n = 1; n <= 10; n++) {
@@ -270,7 +252,7 @@
   \textbf{Python}
   \inputminted{python}{ordered_units.py}
   
-  \textbf{Naive Java Implementation}
+  \textbf{Naive Java Idiom}
   \begin{lstlisting}
     bool areOrderedUnits(double x, double y) {
       return 0 <= x && x < y && y <= 1;
@@ -283,13 +265,97 @@
   \textbf{Python}
   \inputminted{python}{ternary.py}
   
-  \textbf{Naive Java Implementation}
+  \textbf{Naive Java Idiom}
   \begin{lstlisting}[escapeinside={(*}{*)}]
     String parity(int number) {
       return (number (*\%*) 2 == 0) ? "Even" : "Odd";
     }
   \end{lstlisting}
 \end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{Python Idioms: Keyword Arguments}
+  \textbf{Python}
+  \inputminted{python}{keyword.py}
+  
+  \textbf{Naive Java Idiom}
+  \begin{lstlisting}
+    bool equal(double a, double b) {
+      return equal(a, b, 1e-15); 
+    }
+
+    bool equal(double a, double b, double delta) {
+      return Math.abs(a - b) <= delta;
+    }
+   \end{lstlisting}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Python Idioms: Object Keyword Arguments}
+  \textbf{Python}
+  \inputminted{python}{book.py}
+\end{frame}
+
+  
+\begin{frame}[fragile]
+  \frametitle{Naive Java Idiom I: Object Keyword Arguments}
+  \begin{lstlisting}
+    class Book {
+      private String author, title, pub;
+
+      Book(String author, String title, String pub) {
+        this.author = author;
+        this.title = title;
+        this.pub = pub;
+      }
+    }
+  \end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{Naive Java Idiom II: Object Keyword Arguments}
+  \begin{lstlisting}[basicstyle=\tiny]
+    class Builder {
+      private String author, title, pub;
+
+      Builder(String title) {
+        this.author = "L. Ron Hubbard";
+        this.title = title;
+      }
+
+      Builder author(String title) {
+        this.title = title;
+        return this;
+      }
+ 
+      Builder pub(String pub) {
+        this.pub = pub;
+        return this;
+      }
+
+      Book build() {
+        return new Book(author, title, publisher);
+      }
+    }
+  \end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{Naive Java Idiom III: Object Keyword Arguments}
+  \begin{lstlisting}
+    Book battlefield = new Builder("Battlefield Earth")
+                               .pub("St. Martin's Press") 
+                               .build();
+    Book martian = new Builder("The Martian Chronicles")
+                    .author("Ray Bradbury")
+                    .pub("Doubleday")
+                    .build();
+   \end{lstlisting}
+\end{frame}
+
 
 
 \begin{frame}
