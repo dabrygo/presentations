@@ -11,5 +11,8 @@
 *.mintedcmd
 _minted*/
 
+# python
+__pycache__/
+
 # vi
 *.swp
