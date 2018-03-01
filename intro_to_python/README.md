@@ -1,13 +1,8 @@
-# Intro to Python
+# IntroPy
 An introduction to Python for those who have programmed in other languages
 
-## Philosophy / Environments
-  * PEP-8
-  * Zen of Python
-  * IDLE
-  * Command line
-  * `help`
-  * PyMotW
+## Philosophy
+Python history, culture, and idioms. 
 
 ## Strings
   * API
@@ -15,7 +10,10 @@ An introduction to Python for those who have programmed in other languages
     * `%`
     * `.format()`
     * `f'{}'`
+    * template?
     * Numbers
+  * b''
+  * r''
   * Unicode
   * str
 
