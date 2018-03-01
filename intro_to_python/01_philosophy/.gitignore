@@ -7,6 +7,7 @@
 *.snm
 *.toc
 *.log
+*.vrb
 *.mintedcmd
 _minted*/
 
