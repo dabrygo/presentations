@@ -16,6 +16,11 @@ Python history, culture, and idioms.
   * r''
   * Unicode
   * str
+  * `__str__` and `__repr__`
+    * repr if no str
+    * str mod is format?
+  * class example with setitem/delitem/reversed?
+  * unicode()?
 
 ## Collections/Containers (Types?)
   * Tuple
@@ -30,7 +35,7 @@ Python history, culture, and idioms.
 ## Math / operations
   * Boolean (and, or, not)
     - Operate booleans and numbers (except not)
-    - short-circuiting with ``x or y''
+    - short-circuiting with `x or y`
   * Set operations
   * Comparison operators 
     - Chainable
