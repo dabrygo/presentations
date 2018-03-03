@@ -85,5 +85,36 @@
       \end{itemize}
     \end{itemize}
   \end{frame}
-\end{document}
 
+%
+% Ways to Format
+%
+\begin{frame}
+  \frametitle{Ways to Format}
+  \begin{itemize}
+    \item C-Style
+      \begin{itemize}
+        \item \% places a new variable in a string
+	\item Letter means variable's type
+	\item Values between specify length
+        \item Ex.: \lstinline{"\%s are \%.2f" \% (item, cost)}
+      \end{itemize}
+
+    \item Positional
+      \begin{itemize}
+        \item Sets of brackets place a new variable in a string
+	\item Variables placed in \texttt{str.format} argument order
+	\item Values after (optional) colon specify length
+        \item Ex.: \lstinline{"\{\} are \{:.2\}".format(item, cost)}
+	\item If temporary names given, order arbitrary
+        \item Ex.: \lstinline{"\{x\} are \{y:.2\}".format(x=item, y=cost)}
+        \item Ex.: \lstinline{"\{item\} are \{cost:.2\}".format(cost=cost, item=item)}
+       \end{itemize}
+
+    \item Format String (Python 3.6) 
+      \begin{itemize}
+        \item Ex.: \lstinline{f'\{item\} are \{cost:.2\}'}
+      \end{itemize}
+    \end{itemize}
+  \end{frame}
+\end{document}
