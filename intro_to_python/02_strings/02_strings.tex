@@ -51,12 +51,35 @@
         \item \lstinline{'C:\\\\Users'}
       \end{itemize}
 
-    \item Characters after \textbackslash~ aren't special if string starts with r
-      \begin{itemize}
-        \item \lstinline{r'C:\\Users'}
-      \end{itemize}
  \end{itemize}
 \end{frame}
 
+%
+% Leading Letters
+%
+\begin{frame}
+  \frametitle{Letters Before Strings}
+  \begin{itemize}
+    \item Unicode (Python 2)
+      \begin{itemize}
+        \item Strings are unicode by default in Python 3
+        \item \lstinline{u'string'}
+      \end{itemize}
+    \end{itemize}
+
+    \item Bytes
+      \begin{itemize}
+        \item An unencoded sequence of bytes
+        \item \lstinline{b'string'}
+      \end{itemize}
+    \end{itemize}
+
+    \item Raw
+      \begin{itemize}
+	\item Don't have to escape \textbackslash
+        \item Ex.: \lstinline{r'C:\\Users'}
+      \end{itemize}
+    \end{itemize}
+  \end{frame}
 \end{document}
 
