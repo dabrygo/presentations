@@ -63,21 +63,25 @@
     \item Unicode (Python 2)
       \begin{itemize}
         \item Strings are unicode by default in Python 3
-        \item \lstinline{u'string'}
+        \item Ex.: \lstinline{u'string'}
       \end{itemize}
-    \end{itemize}
 
     \item Bytes
       \begin{itemize}
         \item An unencoded sequence of bytes
-        \item \lstinline{b'string'}
+        \item Ex.: \lstinline{b'string'}
       \end{itemize}
-    \end{itemize}
 
     \item Raw
       \begin{itemize}
 	\item Don't have to escape \textbackslash
         \item Ex.: \lstinline{r'C:\\Users'}
+      \end{itemize}
+
+    \item Format (Python 3.6) 
+      \begin{itemize}
+	\item Can refer to variables in-string
+        \item Ex.: \lstinline{name = 'Daniel'; print(f"Hello, \{name\}")}
       \end{itemize}
     \end{itemize}
   \end{frame}
