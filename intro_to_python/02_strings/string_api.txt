@@ -1,0 +1,47 @@
+CASE
+ * capitalize(...) 
+ * casefold(...)
+ * lower(...)      |  islower(...)
+ * swapcase(...)
+ * title(...)      |  istitle(...)
+ * upper(...)      |  isupper(...)
+
+FORMATTING
+ * ljust(...) | center(...) | rjust(...)
+ * format(...)
+ * format_map(...)
+ * lstrip(...) | strip(...) | rstrip(...)
+
+DIVISION
+ *  partition(...) |  rpartition(...)
+ *  split(...)     |  rsplit(...)
+ *  splitlines(...)
+
+JOINING
+ *  join(...)
+
+SEARCH
+ *  count(...)
+ *  endswith(...)
+ *  find(...)     |  rfind(...)
+ *  index(...)    |  rindex(...)
+ *  startswith(...)
+
+REPLACE
+ *  encode(...)
+ *  expandtabs(...)
+ *  replace(...)
+ *  maketrans(x, y=None, z=None, /)
+ *  translate(...)
+ *  zfill(...)
+
+TESTING
+ *  isalnum(...)
+ *  isalpha(...)
+ *  isdecimal(...)
+ *  isdigit(...)
+ *  isidentifier(...)
+ *  isnumeric(...)
+ *  isprintable(...)
+ *  isspace(...)
+
