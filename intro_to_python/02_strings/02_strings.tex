@@ -26,12 +26,17 @@
 % * r''
 % * Unicode
 % * str
+% TODO Bytes in 2.7 is 'str' but 'bytes' in 3.6
 
 %
 % Properties
 %
 \begin{frame}
   \frametitle{Properties}
+  \begin{itemize}
+    \item Immutable
+    \item Iterable
+  \end{itemize}
 \end{frame}
 
 
@@ -72,14 +77,15 @@
   \frametitle{Case}
   Given \lstinline{car = 'Lightning McQueen from Cars'}
   \begin{table}
-    \begin{tabular}{c | c}
-    Function & Output \\
+    \begin{tabular}{c | c | c}
+    Function & Output & Test For \\
     \hline
-    car.upper() & 'LIGHTNING MCQUEEN FROM CARS' \\
-    car.lower() & 'lightning mcqueen from cars' \\
-    car.title() & 'Lightning Mcqueen From Cars' \\
-    car.capitalize() & 'Lightning mcqueen from cars' \\
-    car.swapcase() & 'lIGHTNING mCqUEEN FROM cARS'
+    car.upper() & 'LIGHTNING MCQUEEN FROM CARS' & str.isupper() \\
+    car.lower() & 'lightning mcqueen from cars' & str.islower() \\
+    car.title() & 'Lightning Mcqueen From Cars' & str.istitle() \\
+    car.capitalize() & 'Lightning mcqueen from cars' & N/A \\
+    car.swapcase() & 'lIGHTNING mCqUEEN FROM cARS' & N/A
+    \end{tabular}
   \end{table}
 \end{frame}
 
@@ -88,7 +94,25 @@
 % Division / Joining
 %
 \begin{frame}
-  \frametitle{Division}
+  \frametitle{Splitting and Joining}
+
+  \lstinline{names = 'Chapman Cleese\\tIdle      Palin'}
+
+  \lstinline{csv = 'Chapman,Cleese,Idle,Palin'}
+
+  \lstinline{lines = 'G Chapman\\nJ Cleese\\nE Idle\\nM Palin'}
+
+  \begin{table}
+    \begin{tabular}{l | l}
+    Function & Output \\
+    \hline
+    names.split() & ['Chapman', 'Cleese', 'Idle', 'Palin'] \\
+    csv.split(sep=',') & ['Chapman', 'Cleese', 'Idle', 'Palin'] \\
+    csv.split(sep=',', maxsplit=1) & ['Chapman', 'Cleese,Idle,Palin'] \\
+    csv.rsplit(sep=',', maxsplit=1) & ['Chapman,Cleese,Idle', 'Palin'] \\
+    lines.splitlines() & ['G Chapman', 'J Cleese', 'E Idle', 'M Palin']
+    \end{tabular}
+  \end{table}
 \end{frame}
 
 
@@ -96,7 +120,7 @@
 % Search
 %
 \begin{frame}
-  \frametitle{Division}
+  \frametitle{Search}
 \end{frame}
 
 
@@ -104,7 +128,7 @@
 % Replace
 %
 \begin{frame}
-  \frametitle{Division}
+  \frametitle{Replace}
 \end{frame}
 
 
