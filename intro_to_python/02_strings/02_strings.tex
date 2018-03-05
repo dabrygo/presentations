@@ -36,6 +36,7 @@
   \begin{itemize}
     \item Immutable
     \item Iterable
+    \item Indexable
   \end{itemize}
 \end{frame}
 
@@ -71,13 +72,13 @@
 
 
 %
-% Capitalization TODO add casefold and islower/title/upper/
+% Capitalization TODO add casefold
 %
 \begin{frame}
   \frametitle{Case}
   Given \lstinline{car = 'Lightning McQueen from Cars'}
   \begin{table}
-    \begin{tabular}{c | c | c}
+    \begin{tabular}{l | l | l}
     Function & Output & Test For \\
     \hline
     car.upper() & 'LIGHTNING MCQUEEN FROM CARS' & str.isupper() \\
@@ -91,17 +92,39 @@
 
 
 %
+% Justification
+%
+\begin{frame}
+  \frametitle{Justification}
+  \textit{str.ljust(width[, fillchar]) -> str}
+  \begin{table}
+    \begin{tabular}{l | l}
+    Function & Output \\
+    \hline
+    "Python".ljust(1) & 'Python' \\
+    "Python".ljust(12, '*') & 'Python~~~~~~' \\
+    "Python".rjust(12, '*') & '~~~~~~Python' \\
+    "Python".center(12, '*') & '~~~Python~~~' \\
+    "Python".center(13, '*') & '~~~~Python~~~' \\
+    \end{tabular}
+  \end{table}
+\end{frame}
+
+
+%
 % Division / Joining
 %
 \begin{frame}
   \frametitle{Splitting and Joining}
+
+  \textit{str.split(sep=None, maxsplit=-1) -> list of strings}
 
   \lstinline{names = 'Chapman Cleese\\tIdle      Palin'}
 
   \lstinline{csv = 'Chapman,Cleese,Idle,Palin'}
 
   \lstinline{lines = 'G Chapman\\nJ Cleese\\nE Idle\\nM Palin'}
-
+ 
   \begin{table}
     \begin{tabular}{l | l}
     Function & Output \\
@@ -109,7 +132,7 @@
     names.split() & ['Chapman', 'Cleese', 'Idle', 'Palin'] \\
     csv.split(sep=',') & ['Chapman', 'Cleese', 'Idle', 'Palin'] \\
     csv.split(sep=',', maxsplit=1) & ['Chapman', 'Cleese,Idle,Palin'] \\
-    csv.rsplit(sep=',', maxsplit=1) & ['Chapman,Cleese,Idle', 'Palin'] \\
+    csv.rsplit(sep=',', maxsplit=2) & ['Chapman,Cleese', 'Idle', 'Palin'] \\
     lines.splitlines() & ['G Chapman', 'J Cleese', 'E Idle', 'M Palin']
     \end{tabular}
   \end{table}
@@ -141,12 +164,15 @@
 
 
 %
-% String format methods
+% Stripping
 %
 \begin{frame}
-  \frametitle{String format methods}
+  \frametitle{Stripping}
 \end{frame}
 
+\begin{frame}
+  \frametitle{Formatting}
+\end{frame}
 
 %
 % format() built-in
