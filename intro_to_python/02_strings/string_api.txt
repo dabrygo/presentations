@@ -6,15 +6,19 @@ CASE
  * title(...)      |  istitle(...)
  * upper(...)      |  isupper(...)
 
-Justification
+JUSTIFICATION
  * ljust(...)
  * center(...) 
  * rjust(...)
 
+STRIPPING
+ * lstrip(...) 
+ * strip(...) 
+ * rstrip(...)
+
 FORMATTING
  * format(...)
  * format_map(...)
- * lstrip(...) | strip(...) | rstrip(...)
 
 DIVISION
  *  partition(...) |  rpartition(...)

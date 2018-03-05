@@ -92,7 +92,7 @@
 
 
 %
-% Justification
+% Justification TODO Add zfill
 %
 \begin{frame}
   \frametitle{Justification}
@@ -102,17 +102,37 @@
     Function & Output \\
     \hline
     "Python".ljust(1) & 'Python' \\
-    "Python".ljust(12, '*') & 'Python~~~~~~' \\
-    "Python".rjust(12, '*') & '~~~~~~Python' \\
-    "Python".center(12, '*') & '~~~Python~~~' \\
-    "Python".center(13, '*') & '~~~~Python~~~' \\
+    "Python".ljust(12, '*') & 'Python******' \\
+    "Python".rjust(12, '*') & '******Python' \\
+    "Python".center(12, '*') & '***Python***' \\
+    "Python".center(13, '*') & '****Python***'
     \end{tabular}
   \end{table}
 \end{frame}
 
 
 %
-% Division / Joining
+% Stripping
+%
+\begin{frame}
+  \frametitle{Stripping}
+  \lstinline{line = "\\t   hello world\\t\\t"}
+  \textit{str.strip([chars])}
+  \begin{table}
+    \begin{tabular}{l | l}
+    Function & Output \\
+    \hline
+    line.lstrip() & \lstinline{"hello world\\t\\t"} \\
+    line.rstrip() & \lstinline{"\\t   hello world"} \\
+    line.strip() & \lstinline{"hello world"} \\
+    line.strip('\\t') & \lstinline{"   hello world"}
+    \end{tabular}
+  \end{table}
+\end{frame}
+
+
+%
+% Division / TODO Joining
 %
 \begin{frame}
   \frametitle{Splitting and Joining}
@@ -162,13 +182,6 @@
   \frametitle{Testing}
 \end{frame}
 
-
-%
-% Stripping
-%
-\begin{frame}
-  \frametitle{Stripping}
-\end{frame}
 
 \begin{frame}
   \frametitle{Formatting}
