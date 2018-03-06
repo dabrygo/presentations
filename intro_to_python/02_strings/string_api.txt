@@ -10,6 +10,7 @@ JUSTIFICATION
  * ljust(...)
  * center(...) 
  * rjust(...)
+ * zfill(...)
 
 STRIPPING
  * lstrip(...) 
@@ -41,7 +42,6 @@ REPLACE
  *  replace(...)
  *  maketrans(x, y=None, z=None, /)
  *  translate(...)
- *  zfill(...)
 
 TESTING
  *  isalnum(...)

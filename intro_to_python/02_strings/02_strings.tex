@@ -92,15 +92,16 @@
 
 
 %
-% Justification TODO Add zfill
+% Padding 
 %
 \begin{frame}
-  \frametitle{Justification}
+  \frametitle{Padding}
   \textit{str.ljust(width[, fillchar]) -> str}
   \begin{table}
     \begin{tabular}{l | l}
     Function & Output \\
     \hline
+    "7".zfill(3) & '007' \\
     "Python".ljust(1) & 'Python' \\
     "Python".ljust(12, '*') & 'Python******' \\
     "Python".rjust(12, '*') & '******Python' \\
@@ -149,21 +150,52 @@
     \begin{tabular}{l | l}
     Function & Output \\
     \hline
-    names.split() & ['Chapman', 'Cleese', 'Idle', 'Palin'] \\
-    csv.split(sep=',') & ['Chapman', 'Cleese', 'Idle', 'Palin'] \\
-    csv.split(sep=',', maxsplit=1) & ['Chapman', 'Cleese,Idle,Palin'] \\
-    csv.rsplit(sep=',', maxsplit=2) & ['Chapman,Cleese', 'Idle', 'Palin'] \\
-    lines.splitlines() & ['G Chapman', 'J Cleese', 'E Idle', 'M Palin']
+    names.split() & ['chapman', 'cleese', 'idle', 'palin'] \\
+    csv.split(sep=',') & ['chapman', 'cleese', 'idle', 'palin'] \\
+    csv.split(sep=',', maxsplit=1) & ['chapman', 'cleese,idle,palin'] \\
+    csv.rsplit(sep=',', maxsplit=2) & ['chapman,cleese', 'idle', 'palin'] \\
+    lines.splitlines() & ['g chapman', 'j cleese', 'e idle', 'm palin']
     \end{tabular}
   \end{table}
 \end{frame}
 
 
 %
+% Slicing
+%
+\begin{frame}
+  \frametitle{Slicing}
+
+\end{frame}
+
+%
 % Search
 %
 \begin{frame}
   \frametitle{Search}
+  All have form \textit{str.search(substring[, start[, end]])}
+  
+  \lstinline{word = "floccinaucinihilipilification"}
+
+  \begin{table}
+    \begin{tabular}{l | l}
+    Function & Output \\
+    \hline
+    word.count('i') & 9 \\
+    word.count('in') & 2 \\
+    word.count('i', 10) & 8 \\
+    word.count('i', 0, 6) & 8 \\
+    \hline
+    word.startswith('f') & True \\
+    word.endswith('N') & False \\
+    \hline
+    word.find('il') & 15 \\
+    word.find('fjord') & -1 \\
+    \hline
+    word.index('il') & 15 \\
+    word.index('fjord') & ValueError
+   \end{tabular}
+  \end{table}
 \end{frame}
 
 
@@ -183,6 +215,9 @@
 \end{frame}
 
 
+%
+%
+%
 \begin{frame}
   \frametitle{Formatting}
 \end{frame}
