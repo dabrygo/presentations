@@ -123,10 +123,10 @@
     \begin{tabular}{l | l}
     Function & Output \\
     \hline
-    line.lstrip() & \lstinline{"hello world\\t\\t"} \\
-    line.rstrip() & \lstinline{"\\t   hello world"} \\
-    line.strip() & \lstinline{"hello world"} \\
-    line.strip('\\t') & \lstinline{"   hello world"}
+    line.lstrip()     & \lstinline{"hello world\\t\\t"} \\
+    line.rstrip()     & \lstinline{"\\t   hello world"} \\
+    line.strip()      & \lstinline{"hello world"}       \\
+    line.strip('\textbackslash t') & \lstinline{"   hello world"}
     \end{tabular}
   \end{table}
 \end{frame}
@@ -154,7 +154,9 @@
     csv.split(sep=',') & ['chapman', 'cleese', 'idle', 'palin'] \\
     csv.split(sep=',', maxsplit=1) & ['chapman', 'cleese,idle,palin'] \\
     csv.rsplit(sep=',', maxsplit=2) & ['chapman,cleese', 'idle', 'palin'] \\
-    lines.splitlines() & ['g chapman', 'j cleese', 'e idle', 'm palin']
+    lines.splitlines() & ['G Chapman', 'J Cleese', 'E Idle', 'M Palin'] \\
+    \hline
+    ','.join(['Chapman', 'Cleese', 'Idle', 'Palin']) & 'Chapman,Cleese,Idle,Palin'
     \end{tabular}
   \end{table}
 \end{frame}
@@ -165,6 +167,28 @@
 %
 \begin{frame}
   \frametitle{Slicing}
+
+  \lstinline{text = 'words'}
+
+  \begin{enumerate}
+    \item \lstinline{text[start:stop:step]} extracts a substring by indices
+    \item Omitted arguments fall back to defaults
+
+      \lstinline{text[0:len(text):1] == text[:::] == text}
+
+    \item Negatives mean backward movement
+    
+      Reverse word: \lstinline{text[::-1] == 'sdrow'}
+
+      Next to last letter: \lstinline{text[:-1] == 'word'}
+
+      Next to last letter: \lstinline{text[-1] == 's'}
+
+      Last three letters: \lstinline{text[-3:] == 'rds'}
+
+
+
+  \end{enumerate}
 
 \end{frame}
 
