@@ -21,12 +21,10 @@ FORMATTING
  * format(...)
  * format_map(...)
 
-DIVISION
+DIVISION/JOINING
  *  partition(...) |  rpartition(...)
  *  split(...)     |  rsplit(...)
  *  splitlines(...)
-
-JOINING
  *  join(...)
 
 SEARCH
