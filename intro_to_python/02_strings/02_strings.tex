@@ -67,6 +67,8 @@
         \item \lstinline{'C:\\\\Users'}
       \end{itemize}
 
+    \item Lines are continued if there's nothing after \textbackslash 
+
  \end{itemize}
 \end{frame}
 
@@ -145,7 +147,9 @@
   \lstinline{csv = 'Chapman,Cleese,Idle,Palin'}
 
   \lstinline{lines = 'G Chapman\\nJ Cleese\\nE Idle\\nM Palin'}
- 
+
+  \lstinline{troupe = ['Chapman', 'Cleese', 'Idle', 'Palin']}
+  
   \begin{table}
     \begin{tabular}{l | l}
     Function & Output \\
@@ -156,7 +160,7 @@
     csv.rsplit(sep=',', maxsplit=2) & ['chapman,cleese', 'idle', 'palin'] \\
     lines.splitlines() & ['G Chapman', 'J Cleese', 'E Idle', 'M Palin'] \\
     \hline
-    ','.join(['Chapman', 'Cleese', 'Idle', 'Palin']) & 'Chapman,Cleese,Idle,Palin'
+    ','.join(troupe) & 'Chapman,Cleese,Idle,Palin'
     \end{tabular}
   \end{table}
 \end{frame}
@@ -185,7 +189,6 @@
       Next to last letter: \lstinline{text[-1] == 's'}
 
       Last three letters: \lstinline{text[-3:] == 'rds'}
-
 
 
   \end{enumerate}
@@ -228,6 +231,30 @@
 %
 \begin{frame}
   \frametitle{Replace}
+  tab = '\\t'
+  arthur = '1... 2... 5'
+  song = 'apples and bananas'
+  \begin{table}
+    \begin{tabular}{l | l}
+    Function & Output \\
+    \hline
+    tab.expandtabs() & '        ' \\
+    tab.expandtabs(tabsize=2) & '  ' \\
+    \hline
+    arthur.replace('5', '3') & '1... 2... 3'\\
+    arthur.replace('6', '3') & '1... 2... 5'\\
+    arthur.replace('5', '3', 2) & '1... 2... 3'\\
+    song.replace('a', 'oo') & 'ooples oond boonoonoos'\\
+    song.replace('a', 'oo', 2) & 'ooples oond bananas'\\
+    \hline
+    % TODO
+    str.maketrans('a', 'e') 
+    str.translate()
+    \hline
+    % TODO
+    str.encode()
+   \end{tabular}
+  \end{table}
 \end{frame}
 
 
@@ -235,7 +262,34 @@
 % Testing
 %
 \begin{frame}
+  alnum = 'abc123'
+
+  alpha = 'abc'
+
+  decimal = '3.14'
+
+  digit = '123'
+
+  identifier = 'my\text_variable'
+
+  numeric = '$\frac{1}{2}$'
+
+  newline = '\textbackslash n'
   \frametitle{Testing}
+  \begin{table}
+    \begin{tabular}{l | l}
+    Function & Output \\
+    \hline
+    alnum.isalnum() & True \\
+    alpha.isalpha() & True \\
+    decimal.isdecimal() & True \\
+    digit.isdigit() & True \\
+    identifier.isidentifier() & True \\
+    numeric.isnumeric() & True \\
+    newline.isprintable() & False \\
+    newline.isspace() & True 
+   \end{tabular}
+  \end{table}
 \end{frame}
 
 
