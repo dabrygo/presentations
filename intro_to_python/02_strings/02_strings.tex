@@ -180,7 +180,9 @@
     csv.split(sep=',', maxsplit=1) & ['Chapman', 'Cleese,Idle,Palin'] \\
     csv.rsplit(sep=',', maxsplit=2) & ['Chapman,Cleese', 'Idle', 'Palin'] \\
     lines.splitlines() & ['Chapman', 'Cleese', 'Idle', 'Palin'] \\
-    \hline
+    csv.partition(sep=',') & ('Chapman', ',', ('Cleese,Idle,Palin')) \\
+    csv.rpartition(sep=',') & (('Chapman,Cleese,Idle'), ',', 'Palin')) \\
+     \hline
     ' + '.join(troupe) & 'Chapman + Cleese + Idle + Palin'
     \end{tabular}
   \end{table}
@@ -204,13 +206,13 @@
 
     \item Good practice to use no more than two of \texttt{start, stop, step} at a time
 
-    \item Negatives mean backward movement
+    \item Negatives mean ``backward'' movement (i.e. from end of string)
     
       Reverse word: \texttt{text[::-1] == `sdrow'}
 
-      Next to last letter: \texttt{text[:-1] == `word'}
+      All but last letter: \texttt{text[:-1] == `word'}
 
-      Next to last letter: \texttt{text[-1] == `s'}
+      Last letter: \texttt{text[-1] == `s'}
 
       Last three letters: \texttt{text[-3:] == `rds'}
   \end{itemize}
@@ -253,15 +255,17 @@
 %
 \begin{frame}
   \frametitle{Replace}
-  tab = '\\t'
+  tab = '\textbackslash t'
+
   arthur = '1... 2... 5'
+
   song = 'apples and bananas'
   \begin{table}
     \begin{tabular}{l | l}
     Function & Output \\
     \hline
-    tab.expandtabs() & '        ' \\
-    tab.expandtabs(tabsize=2) & '  ' \\
+    tab.expandtabs() & 8 spaces \\
+    tab.expandtabs(tabsize=2) & 2 spaces \\
     \hline
     arthur.replace('5', '3') & '1... 2... 3'\\
     arthur.replace('6', '3') & '1... 2... 5'\\
@@ -301,14 +305,6 @@
       `\textbackslash n'.isspace() & True 
     \end{tabular}
   \end{table}
-\end{frame}
-
-
-%
-% format() built-in
-%
-\begin{frame}
-  \frametitle{Formatting Values} 
 \end{frame}
 
 
@@ -363,11 +359,17 @@
         \item Sets of brackets place a new variable in a string
 	\item Variables placed in \texttt{str.format} argument order
 	\item Values after (optional) colon specify length
+	\item Escape brackets by using \{\{ and \}\}
         \item Ex.: \lstinline{"\{\} are \{:.2\}".format(item, cost)}
 	\item If temporary names given, order arbitrary
         \item Ex.: \lstinline{"\{x\} are \{y:.2\}".format(x=item, y=cost)}
         \item Ex.: \lstinline{"\{item\} are \{cost:.2\}".format(cost=cost, item=item)}
       \end{itemize}
+    \item Formatting (Python 3.6)
+      \begin{itemize}
+        \item a = 1; b = 2
+        \item Expressions: \lstinline{f'\{a\}  + \{b\} = \{a+b\}'}
+     \end{itemize}
   \end{itemize}
 \end{frame}
 
@@ -396,15 +398,4 @@
     \end{itemize}
   \end{itemize}
 \end{frame}
-
-%
-% Python 3.6 formatting
-%
-\begin{frame}
- \frametitle{Python 3.6 Formatting}
- \begin{itemize}
-   \item Ex.: \lstinline{f'\{1\} are \{cost:.2\}'}
- \end{itemize}
-\end{frame}
-
 \end{document}
