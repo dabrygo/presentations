@@ -49,47 +49,66 @@
   \begin{itemize}
     \item Single- or double-quotes
       \begin{itemize}
-        \item \lstinline{'hello world'} 
-	\item \lstinline{"hello world"}
+        \item \texttt{`hello world'} 
+	\item \texttt{"hello world"}
       \end{itemize}
 
     \item Three-quote pairs for multiline text
 %    \inputminted{python}{multiline.py}
 
-    \item Special characters start with \textbackslash, e.g.: 
+    \item Can nest different quotes inside each other
       \begin{itemize}
-        \item ``\textbackslash n'' (newline)
-	\item ``\textbackslash t'' (tab) 
+        \item \texttt{`Say "hello"'} 
+	\item \texttt{"`hello'"}
       \end{itemize}
-
-    \item \textbackslash \textbackslash~ escapes backslash 
-      \begin{itemize}
-        \item \lstinline{'C:\\\\Users'}
-      \end{itemize}
-
-    \item Lines are continued if there's nothing after \textbackslash 
-
- \end{itemize}
+  \end{itemize}
 \end{frame}
 
 
 %
-% Capitalization TODO add casefold
+% Escaping
+%
+\begin{frame}
+  \frametitle{Special Characters and Escaping}
+  \begin{itemize}
+    \item Special characters start with \textbackslash, e.g.: 
+      \begin{itemize}
+        \item \texttt{"\textbackslash n"} (newline)
+        \item \texttt{"\textbackslash t"} (tab)
+	\item \texttt{"\textbackslash " "} or \texttt{`\textbackslash ` '} 
+      \end{itemize}
+
+    \item \textbackslash \textbackslash~ escapes backslash 
+      \begin{itemize}
+        \item \texttt{`C:\textbackslash\textbackslash Users'}
+      \end{itemize}
+
+    \item Lines are continued if there's nothing after \textbackslash 
+      \begin{itemize}
+        \item \texttt{```This string is\textbackslash\\two lines long!'''}
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+%
+% Capitalization
 %
 \begin{frame}
   \frametitle{Case}
-  Given \lstinline{car = 'Lightning McQueen from Cars'}
+  Given \texttt{car = `Lightning McQueen in Cars'}
   \begin{table}
     \begin{tabular}{l | l | l}
-    Function & Output & Test For \\
+    Function & Output & Test \\
     \hline
-    car.upper() & 'LIGHTNING MCQUEEN FROM CARS' & str.isupper() \\
-    car.lower() & 'lightning mcqueen from cars' & str.islower() \\
-    car.title() & 'Lightning Mcqueen From Cars' & str.istitle() \\
-    car.capitalize() & 'Lightning mcqueen from cars' & N/A \\
-    car.swapcase() & 'lIGHTNING mCqUEEN FROM cARS' & N/A
+    car.upper() & `LIGHTNING MCQUEEN IN CARS' & str.isupper() \\
+    car.lower() & `lightning mcqueen in cars' & str.islower() \\
+    car.title() & `Lightning Mcqueen In Cars' & str.istitle() \\
+    car.capitalize() & `Lightning mcqueen in cars' & N/A \\
+    car.swapcase() & `lIGHTNING mCqUEEN IN cARS' & N/A \\
     \end{tabular}
   \end{table}
+  ``der Flu\ss".casefold() == ``der Fluss".casefold()
 \end{frame}
 
 
@@ -98,17 +117,17 @@
 %
 \begin{frame}
   \frametitle{Padding}
-  \textit{str.ljust(width[, fillchar]) -> str}
+  \textit{str.ljust(width[, fillchar]) -\textgreater~ str}
   \begin{table}
     \begin{tabular}{l | l}
     Function & Output \\
     \hline
-    "7".zfill(3) & '007' \\
-    "Python".ljust(1) & 'Python' \\
-    "Python".ljust(12, '*') & 'Python******' \\
-    "Python".rjust(12, '*') & '******Python' \\
-    "Python".center(12, '*') & '***Python***' \\
-    "Python".center(13, '*') & '****Python***'
+    ``7".zfill(3) & `007' \\
+    ``Python".ljust(1) & `Python' \\
+    ``Python".ljust(12, '*') & `Python******' \\
+    ``Python".rjust(12, '*') & `******Python' \\
+    ``Python".center(12, '*') & `***Python***' \\
+    ``Python".center(13, '*') & `****Python***'
     \end{tabular}
   \end{table}
 \end{frame}
@@ -119,16 +138,18 @@
 %
 \begin{frame}
   \frametitle{Stripping}
-  \lstinline{line = "\\t   hello world\\t\\t"}
-  \textit{str.strip([chars])}
+  \textit{str.strip([chars]) -\textgreater~ string}
+
+  \texttt{line = "\textbackslash t   hello world\textbackslash t\textbackslash t"}
+
   \begin{table}
     \begin{tabular}{l | l}
     Function & Output \\
     \hline
-    line.lstrip()     & \lstinline{"hello world\\t\\t"} \\
-    line.rstrip()     & \lstinline{"\\t   hello world"} \\
-    line.strip()      & \lstinline{"hello world"}       \\
-    line.strip('\textbackslash t') & \lstinline{"   hello world"}
+    line.lstrip()     & \lstinline{``hello world\\t\\t"} \\
+    line.rstrip()     & \lstinline{``\\t   hello world"} \\
+    line.strip()      & \lstinline{``hello world"}       \\
+    line.strip('\textbackslash t') & \lstinline{``   hello world"}
     \end{tabular}
   \end{table}
 \end{frame}
@@ -140,27 +161,27 @@
 \begin{frame}
   \frametitle{Splitting and Joining}
 
-  \textit{str.split(sep=None, maxsplit=-1) -> list of strings}
+  \textit{str.split(sep=None, maxsplit=-1) -\textgreater~ list of strings}
 
-  \lstinline{names = 'Chapman Cleese\\tIdle      Palin'}
+  \texttt{names = `Chapman Cleese\textbackslash tIdle      Palin'}
 
-  \lstinline{csv = 'Chapman,Cleese,Idle,Palin'}
+  \texttt{csv = `Chapman,Cleese,Idle,Palin'}
 
-  \lstinline{lines = 'G Chapman\\nJ Cleese\\nE Idle\\nM Palin'}
+  \texttt{lines = `Chapman\textbackslash nCleese\textbackslash nIdle\textbackslash nPalin'}
 
-  \lstinline{troupe = ['Chapman', 'Cleese', 'Idle', 'Palin']}
+  \texttt{troupe = [`Chapman', `Cleese', `Idle', `Palin']}
   
   \begin{table}
     \begin{tabular}{l | l}
     Function & Output \\
     \hline
-    names.split() & ['chapman', 'cleese', 'idle', 'palin'] \\
-    csv.split(sep=',') & ['chapman', 'cleese', 'idle', 'palin'] \\
-    csv.split(sep=',', maxsplit=1) & ['chapman', 'cleese,idle,palin'] \\
-    csv.rsplit(sep=',', maxsplit=2) & ['chapman,cleese', 'idle', 'palin'] \\
-    lines.splitlines() & ['G Chapman', 'J Cleese', 'E Idle', 'M Palin'] \\
+    names.split() & ['Chapman', 'Cleese', 'Idle', 'Palin'] \\
+    csv.split(sep=',') & ['Chapman', 'Cleese', 'Idle', 'Palin'] \\
+    csv.split(sep=',', maxsplit=1) & ['Chapman', 'Cleese,Idle,Palin'] \\
+    csv.rsplit(sep=',', maxsplit=2) & ['Chapman,Cleese', 'Idle', 'Palin'] \\
+    lines.splitlines() & ['Chapman', 'Cleese', 'Idle', 'Palin'] \\
     \hline
-    ','.join(troupe) & 'Chapman,Cleese,Idle,Palin'
+    ' + '.join(troupe) & 'Chapman + Cleese + Idle + Palin'
     \end{tabular}
   \end{table}
 \end{frame}
@@ -172,26 +193,27 @@
 \begin{frame}
   \frametitle{Slicing}
 
-  \lstinline{text = 'words'}
+  Given \texttt{text = 'words'}
 
-  \begin{enumerate}
-    \item \lstinline{text[start:stop:step]} extracts a substring by indices
+  \begin{itemize}
+    \item \texttt{text[start:stop:step]} extracts a substring by indices
+    \item \texttt{start} is inclusive, \texttt{stop} is exclusive
     \item Omitted arguments fall back to defaults
 
-      \lstinline{text[0:len(text):1] == text[:::] == text}
+      \texttt{text[0:len(text):1] == text[:::] == text}
+
+    \item Good practice to use no more than two of \texttt{start, stop, step} at a time
 
     \item Negatives mean backward movement
     
-      Reverse word: \lstinline{text[::-1] == 'sdrow'}
+      Reverse word: \texttt{text[::-1] == `sdrow'}
 
-      Next to last letter: \lstinline{text[:-1] == 'word'}
+      Next to last letter: \texttt{text[:-1] == `word'}
 
-      Next to last letter: \lstinline{text[-1] == 's'}
+      Next to last letter: \texttt{text[-1] == `s'}
 
-      Last three letters: \lstinline{text[-3:] == 'rds'}
-
-
-  \end{enumerate}
+      Last three letters: \texttt{text[-3:] == `rds'}
+  \end{itemize}
 
 \end{frame}
 
@@ -202,7 +224,7 @@
   \frametitle{Search}
   All have form \textit{str.search(substring[, start[, end]])}
   
-  \lstinline{word = "floccinaucinihilipilification"}
+  \texttt{word = ``floccinaucinihilipilification"}
 
   \begin{table}
     \begin{tabular}{l | l}
@@ -211,7 +233,7 @@
     word.count('i') & 9 \\
     word.count('in') & 2 \\
     word.count('i', 10) & 8 \\
-    word.count('i', 0, 6) & 8 \\
+    word.count('i', 0, 6) & 1 \\
     \hline
     word.startswith('f') & True \\
     word.endswith('N') & False \\
@@ -246,15 +268,17 @@
     arthur.replace('5', '3', 2) & '1... 2... 3'\\
     song.replace('a', 'oo') & 'ooples oond boonoonoos'\\
     song.replace('a', 'oo', 2) & 'ooples oond bananas'\\
-    \hline
-    % TODO
-    str.maketrans('a', 'e') 
-    str.translate()
-    \hline
+   \hline
     % TODO
     str.encode()
    \end{tabular}
   \end{table}
+
+  \texttt{\textgreater \textgreater \textgreater fudd = str.maketrans('LlRr', 'WwWw')}
+
+  \texttt{\textgreater \textgreater \textgreater ``Let's play, rabbit".translate(fudd)}
+
+  \textit{Wet's pway, wabbit}
 \end{frame}
 
 
@@ -262,43 +286,23 @@
 % Testing
 %
 \begin{frame}
-  alnum = 'abc123'
-
-  alpha = 'abc'
-
-  decimal = '3.14'
-
-  digit = '123'
-
-  identifier = 'my\text_variable'
-
-  numeric = '$\frac{1}{2}$'
-
-  newline = '\textbackslash n'
   \frametitle{Testing}
   \begin{table}
     \begin{tabular}{l | l}
-    Function & Output \\
-    \hline
-    alnum.isalnum() & True \\
-    alpha.isalpha() & True \\
-    decimal.isdecimal() & True \\
-    digit.isdigit() & True \\
-    identifier.isidentifier() & True \\
-    numeric.isnumeric() & True \\
-    newline.isprintable() & False \\
-    newline.isspace() & True 
-   \end{tabular}
+      Function & Output \\
+      \hline
+      `abc123'.isalnum() & True \\
+      `abc'.isalpha() & True \\
+      `3.14'.isdecimal() & True \\
+      `123'.isdigit() & True \\
+      `my\_variable1'.isidentifier() & True \\
+      `$\frac{1}{2}$'.isnumeric() & True \\
+      `\textbackslash n'.isprintable() & False \\
+      `\textbackslash n'.isspace() & True 
+    \end{tabular}
   \end{table}
 \end{frame}
 
-
-%
-%
-%
-\begin{frame}
-  \frametitle{Formatting}
-\end{frame}
 
 %
 % format() built-in
@@ -363,12 +367,44 @@
 	\item If temporary names given, order arbitrary
         \item Ex.: \lstinline{"\{x\} are \{y:.2\}".format(x=item, y=cost)}
         \item Ex.: \lstinline{"\{item\} are \{cost:.2\}".format(cost=cost, item=item)}
-       \end{itemize}
-
-    \item Format String (Python 3.6) 
-      \begin{itemize}
-        \item Ex.: \lstinline{f'\{item\} are \{cost:.2\}'}
       \end{itemize}
+  \end{itemize}
+\end{frame}
+
+%
+% Formatting
+%
+\begin{frame}
+  \frametitle{Formatting}
+  \begin{itemize}
+    \item Can refer to position:
+    \begin{itemize}
+      \texttt{"\{1\} is \{0\}".format('blue', 'The car')}
     \end{itemize}
-  \end{frame}
+    \item Can refer to attributes: 
+    \begin{itemize}
+      \item \texttt{nm = (35, -106)}
+      \item \texttt{"Lat: \{loc[0]\}, lon: \{loc[1]\}".format(loc=nm)}
+      \item \texttt{"Lat: \{0[0]\}, lon: \{0[1]\}".format(nm)}
+    \end{itemize}
+    \item Can refer to fields:
+    \begin{itemize}
+      \item \texttt{import collections}
+      \item \texttt{LatLon = collections.namedtuple('LatLon', 'lat lon')}
+      \item \texttt{latlon = LatLon(36, -106)}
+      \item \texttt{"Lat: \{loc.lat\}, lon: \{loc.lon\}" .format(loc=latlon)}
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+%
+% Python 3.6 formatting
+%
+\begin{frame}
+ \frametitle{Python 3.6 Formatting}
+ \begin{itemize}
+   \item Ex.: \lstinline{f'\{1\} are \{cost:.2\}'}
+ \end{itemize}
+\end{frame}
+
 \end{document}
