@@ -1,0 +1,83 @@
+\documentclass{beamer}
+
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{minted}
+
+
+\title{IntroPy}
+\subtitle{Numbers}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}
+  \frametitle{The Three Basic Numeric Types}
+
+  \begin{table}
+    \begin{tabular}{l | l | l}
+    Function & Use         & Output   \\
+    \hline
+    \texttt{int}      & 123         & 123      \\
+                      & int('42')   & 42       \\
+                      & int(3.1415) & 3        \\
+    % TODO Base
+    \hline
+    \texttt{float}    & 123.0         & 123.0   \\
+                      & float('3.14') & 3.14    \\
+                      & float(42)     & 42.0    \\
+    \hline
+    \texttt{complex}  & 1j                      & 1j    \\
+                      & 1 + 2j                  & (1+2j)\\
+                      & complex(real=0)         & 0j    \\
+                      & complex(real=1)         & (1+0j)\\
+                      & complex(imag=1)         & 1j    \\
+                      & complex(imag=2, real=1) & (1+2j)\\
+                      & complex(1, 2)           & (1+2j)
+     \end{tabular}
+  \end{table}
+  
+\end{frame}
+
+
+% TODO Mention string formatting as base?
+\begin{frame}
+  \frametitle{Base}
+
+  \begin{itemize}
+    \item \texttt{hex}
+    \item \texttt{oct}
+  \end{itemize}
+\end{frame}
+
+\end{document}
+
+% Math / operations
+%  * Boolean (and, or, not)
+%    - Operate booleans and numbers (except not)
+%    - short-circuiting with `x or y`
+%  * Set operations
+%  * Comparison operators 
+%    - Chainable
+%  * Membership (``in'')
+%  * `+/*` on lists
+%  * `**`
+%  * //
+%  * augmented assignment
+%    - pitfall: list += string
+%  * math
+%  * complex
+%  * cmath
+%  * numpy
+%  * scipy
+%  * statistics 
+%  * int
+%  * float
+%  * matrices?
+%  * rounding / Decimal
+%  * Fractions
+%  * Range
+%  * chr / ord
+
