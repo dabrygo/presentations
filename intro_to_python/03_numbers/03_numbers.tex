@@ -21,11 +21,13 @@
     Function & Use         & Output   \\
     \hline
     \texttt{int}      & 123         & 123      \\
+                      & 1\_353\_257 & 1353257  \\
                       & int('42')   & 42       \\
                       & int(3.1415) & 3        \\
     % TODO Base
     \hline
     \texttt{float}    & 123.0         & 123.0   \\
+		      & 3.14\_15\_92  & 3.141592\\
                       & float('3.14') & 3.14    \\
                       & float(42)     & 42.0    \\
     \hline
@@ -42,14 +44,42 @@
 \end{frame}
 
 
-% TODO Mention string formatting as base?
 \begin{frame}
-  \frametitle{Base}
-
+  \frametitle{From Decimal to Base}
   \begin{itemize}
+    \item \texttt{bin}
     \item \texttt{hex}
     \item \texttt{oct}
   \end{itemize}
+ 
+\end{frame}
+
+
+% TODO Mention string formatting as base?
+\begin{frame}
+  \frametitle{From Base to Decimal (Integer)}
+  
+  \begin{table}
+    \begin{tabular}{l | l }
+      Function                & Output   \\
+      \hline
+      int(x=`42')          & 42       \\
+      int(x=`42', base=10) & 42       \\
+      \hline
+      int(x=`10\_1010', base=2) & 42       \\
+      int(x=`0b101010', base=2) & 42       \\
+      \hline
+      int(x=`0o71', base=8) & 57 \\
+      int(x=`0o71', base=8) & 57 \\
+      \hline
+      int(x=`BaDC0fFee', base=16) & 50159747054\\
+      int(x=`0xBaD\_C0fFee', base=16) & 50159747054\\
+      \hline
+      int(x=`python', base=36) & 1570137287\\
+      int(x=`0', base=1) & ValueError \\
+      \end{tabular}
+  \end{table}
+ 
 \end{frame}
 
 \end{document}
@@ -61,12 +91,8 @@
 %  * Set operations
 %  * Comparison operators 
 %    - Chainable
-%  * Membership (``in'')
-%  * `+/*` on lists
 %  * `**`
 %  * //
-%  * augmented assignment
-%    - pitfall: list += string
 %  * math
 %  * complex
 %  * cmath
@@ -80,4 +106,5 @@
 %  * Fractions
 %  * Range
 %  * chr / ord
+%  * pint
 
