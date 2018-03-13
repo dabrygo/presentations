@@ -123,6 +123,40 @@
 \end{frame}
 
 \begin{frame}
+  \frametitle{Binary Operations}
+
+  \begin{itemize}
+  \item not 0 = True and not 42 = False
+    \begin{itemize}
+      \item All nonzeros are ``truthy'' (equivalent to True)
+      \item Zero is ``falsy'' (equivalent to \texttt{False, [], \{\}, None, etc.})
+    \end{itemize}
+  \item Complement ($\sim x = -x -1$)
+    \begin{itemize}
+      \item $\sim 0 = -1$ 
+      \item $\sim -2 = 1$ 
+    \end{itemize}
+  \item Binary and: `0b11' \texttt{AND} `0b10'
+    \begin{itemize}
+      \item 3 and 2 = 2
+      \item $3 \& 2 = 2$
+    \end{itemize}
+  \item Binary or: `0b11' \texttt{OR} `0b10'
+    \begin{itemize}
+      \item 3 or 2 = 3 
+      \item $3 | 2 = 3$
+    \end{itemize}
+  \item Binary xor: binary xor: `0b11' \texttt{XOR} `0b10')
+    \begin{itemize}
+      \item 3 \^ 2 = 1
+    \end{itemize}
+  \item $3 << 3 = 24$ ($x << n$ means multiply x by $2**n$)
+  \item $23 >> 3 = 2$ ($x >> n$ means $//$ x by $2**n$)
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
   \frametitle{Builtins}
 
   \begin{itemize}
