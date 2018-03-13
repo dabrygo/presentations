@@ -118,7 +118,12 @@
   \item Four-function math $+, -, *, /$
   \item $/$ defaults to float division, even when given integers (e.g. $1/2=0.5$)
   \item $//$ does ``integer division'', truncates decimal (e.g. $9//10=0$)
-  \item $\%$ (modulus) is remainder after division (e.g. $5 \% 3 = 2$)
+  \item $\%$ (modulus) is remainder after division (e.g. $5 ~\%~ 3 = 2$)
+    \begin{itemize}
+      \item $a ~\%~ b$ will have same sign as $b$
+      \item $-4 ~\%~ 3 = (3\cdot-2 + 2) = 2$
+      \item $4 ~\%~ -3 = (-3\cdot1 - 1) = -1$
+     \end{itemize}
   \item $**$ is exponentiation (e.g. $2**3=8$)
   \item $<, >, ==$ compare numbers
     \begin{itemize}
@@ -179,6 +184,17 @@
       \item $round(123.455, ndigits=-1) = 120.0$
     \end{itemize}
   \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{\texttt{math}}
+
+  \begin{itemize}
+    \item Constants ($\pi, e, \tau, nan, inf$)
+    \item Trigonometric/hyperbolic functions and inverses (e.g. $sinh$, $atan2$, etc)
+    \item Conversions (\texttt{math.degrees} and \texttt{math.radians})
+    \item Rounding (\texttt{math.ceil, math.floor, math.trunc})
+\end{itemize}
 \end{frame}
 
 
