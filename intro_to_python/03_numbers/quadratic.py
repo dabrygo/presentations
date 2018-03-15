@@ -8,8 +8,8 @@ class Quadratic(abc.ABC):
 
     def roots(self):
         d = Quadratic.discriminant(self.a, self.b, self.c)
-        root1 = (-self.b + self.sqrt(d)) / 2 * self.a
-        root2 = (-self.b - self.sqrt(d)) / 2 * self.a
+        root1 = (-self.b + self.sqrt(d)) / (2 * self.a)
+        root2 = (-self.b - self.sqrt(d)) / (2 * self.a)
         return root1, root2
     
     @abc.abstractmethod

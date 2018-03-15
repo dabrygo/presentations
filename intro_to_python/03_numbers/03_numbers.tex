@@ -133,6 +133,10 @@
 \end{frame}
 
 \begin{frame}
+  \frametitle{Euclidean algorithm}
+\end{frame}
+
+\begin{frame}
   \frametitle{Binary Operations}
 
   \begin{itemize}
@@ -149,16 +153,16 @@
   \item Binary and: `0b11' \texttt{AND} `0b10'
     \begin{itemize}
       \item 3 and 2 = 2
-      \item $3 \& 2 = 2$
+      \item $3 ~\&~ 2 = 2$
     \end{itemize}
   \item Binary or: `0b11' \texttt{OR} `0b10'
     \begin{itemize}
       \item 3 or 2 = 3 
-      \item $3 | 2 = 3$
+      \item $3 ~|~ 2 = 3$
     \end{itemize}
   \item Binary xor: binary xor: `0b11' \texttt{XOR} `0b10')
     \begin{itemize}
-      \item 3 \^ 2 = 1
+      \item 3 \textasciicircum~ 2 = 1
     \end{itemize}
   \item $3 << 3 = 24$ ($x << n$ means multiply x by $2**n$)
   \item $23 >> 3 = 2$ ($x >> n$ means $//$ x by $2**n$)
@@ -183,6 +187,8 @@
       \item $round(123.455, ndigits=2) = 123.45$
       \item $round(123.455, ndigits=-1) = 120.0$
     \end{itemize}
+  \item \texttt{ord} returns the code point of a character
+  \item \texttt{chr} returns a character from its codepoint
   \end{itemize}
 \end{frame}
 
@@ -190,12 +196,94 @@
   \frametitle{\texttt{math}}
 
   \begin{itemize}
+    \item Algebraic functions (\texttt{gcd, factorial, hypot})
     \item Constants ($\pi, e, \tau, nan, inf$)
     \item Trigonometric/hyperbolic functions and inverses (e.g. $sinh$, $atan2$, etc)
     \item Conversions (\texttt{math.degrees} and \texttt{math.radians})
+    \item Tests (\texttt{isinf, isfinite, isnan, isclose})
     \item Rounding (\texttt{math.ceil, math.floor, math.trunc})
-\end{itemize}
+      \begin{itemize}
+        \item \texttt{math.ceil(1.5) = 2} and \texttt{math.ceil(-1.5) = -1}
+        \item \texttt{math.floor(1.5) = 1} and \texttt{math.floor(-1.5) = -2}
+        \item \texttt{math.trunc(1.5) = 1} and \texttt{math.trunc(-1.5) = -1}
+      \end{itemize}
+  \end{itemize}
 \end{frame}
+
+\begin{frame}
+  \frametitle{\texttt{cmath} and complex math}
+
+  \begin{itemize}
+    \item \texttt{abs} returns modulus
+    \item \texttt{sqrt} can take negative values
+    \item \texttt{phase} is the angle between real and imaginary components
+      \begin{itemize}
+        \item import math, cmath
+	\item math.degrees(cmath.phase(1 + 1j)) == 45.0
+      \end{itemize}
+    \item \texttt{rect} takes a radius and angle, returns normalized complex
+    \item \texttt{polar} takes complex and returns radius and angle
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Quadratic example}
+\end{frame}
+
+%\begin{frame}
+%  \frametitle{\texttt{statistics}}
+%
+%  \begin{itemize}
+%    \item Algebraic functions (\texttt{gcd, factorial, hypot})
+%    \item Constants ($\pi, e, \tau, nan, inf$)
+%    \item Trigonometric/hyperbolic functions and inverses (e.g. $sinh$, $atan2$, etc)
+%    \item Conversions (\texttt{math.degrees} and \texttt{math.radians})
+%    \item Tests (\texttt{isinf, isfinite, isnan, isclose})
+%    \item Rounding (\texttt{math.ceil, math.floor, math.trunc})
+%      \begin{itemize}
+%        \item \texttt{math.ceil(1.5) = 2} and \texttt{math.ceil(-1.5) = -1}
+%        \item \texttt{math.floor(1.5) = 1} and \texttt{math.floor(-1.5) = -2}
+%        \item \texttt{math.trunc(1.5) = 1} and \texttt{math.trunc(-1.5) = -1}
+%      \end{itemize}
+%  \end{itemize}
+%\end{frame}
+
+%\begin{frame}
+%  \frametitle{\texttt{fractions}}
+%
+%  \begin{itemize}
+%    \item Algebraic functions (\texttt{gcd, factorial, hypot})
+%    \item Constants ($\pi, e, \tau, nan, inf$)
+%    \item Trigonometric/hyperbolic functions and inverses (e.g. $sinh$, $atan2$, etc)
+%    \item Conversions (\texttt{math.degrees} and \texttt{math.radians})
+%    \item Tests (\texttt{isinf, isfinite, isnan, isclose})
+%    \item Rounding (\texttt{math.ceil, math.floor, math.trunc})
+%      \begin{itemize}
+%        \item \texttt{math.ceil(1.5) = 2} and \texttt{math.ceil(-1.5) = -1}
+%        \item \texttt{math.floor(1.5) = 1} and \texttt{math.floor(-1.5) = -2}
+%        \item \texttt{math.trunc(1.5) = 1} and \texttt{math.trunc(-1.5) = -1}
+%      \end{itemize}
+%  \end{itemize}
+%\end{frame}
+%
+%\begin{frame}
+%  \frametitle{\texttt{decimal}}
+%
+%  \begin{itemize}
+%    \item Algebraic functions (\texttt{gcd, factorial, hypot})
+%    \item Constants ($\pi, e, \tau, nan, inf$)
+%    \item Trigonometric/hyperbolic functions and inverses (e.g. $sinh$, $atan2$, etc)
+%    \item Conversions (\texttt{math.degrees} and \texttt{math.radians})
+%    \item Tests (\texttt{isinf, isfinite, isnan, isclose})
+%    \item Rounding (\texttt{math.ceil, math.floor, math.trunc})
+%      \begin{itemize}
+%        \item \texttt{math.ceil(1.5) = 2} and \texttt{math.ceil(-1.5) = -1}
+%        \item \texttt{math.floor(1.5) = 1} and \texttt{math.floor(-1.5) = -2}
+%        \item \texttt{math.trunc(1.5) = 1} and \texttt{math.trunc(-1.5) = -1}
+%      \end{itemize}
+%  \end{itemize}
+%\end{frame}
+
 
 
 \end{document}
