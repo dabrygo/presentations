@@ -2,25 +2,13 @@
 An introduction to Python for those who have programmed in other languages
 
 ## Philosophy
-Python history, culture, and idioms. 
+  Python history, culture, and idioms. 
 
 ## Strings
-  * API
-  * Formatting
-    * `%`
-    * `.format()`
-    * `f'{}'`
-    * template?
-    * Numbers
-  * b''
-  * r''
-  * Unicode
-  * str
-  * `__str__` and `__repr__`
-    * repr if no str
-    * str mod is format?
-  * class example with setitem/delitem/reversed?
-  * unicode()?
+  A whirlwind tour of the Python str API.
+
+## Numbers
+  Overview of numbers and their operations.
 
 ## Collections/Containers (Types?)
   * Tuple
@@ -31,31 +19,6 @@ Python history, culture, and idioms.
   * int
   * float
   * assignment with operators (e.g. {}) and keyword (e.g. dict)
-
-## Math / operations
-  * Boolean (and, or, not)
-    - Operate booleans and numbers (except not)
-    - short-circuiting with `x or y`
-  * Set operations
-  * Comparison operators 
-    - Chainable
-  * Membership (``in'')
-  * `+/*` on lists
-  * `**`
-  * //
-  * augmented assignment
-    - pitfall: list += string
-  * math
-  * complex
-  * cmath
-  * numpy
-  * scipy
-  * statistics 
-  * int
-  * float
-  * matrices?
-  * rounding / Decimal
-  * Fractions
 
 ## Control flow
   * Falsy
