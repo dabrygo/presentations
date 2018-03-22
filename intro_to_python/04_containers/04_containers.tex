@@ -1,0 +1,244 @@
+\documentclass{beamer}
+
+%\usepackage{color}
+%usepackage{graphicx}
+%usepackage{hyperref}
+\usepackage{listings}
+%usepackage{minted}
+
+
+\title{IntroPy}
+\subtitle{Containers}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}
+  \textbf{What are Containers?}
+
+  \begin{itemize}
+    \item Can hold items of same/different types
+    \item Can use \texttt{in} to test if object in container
+  \end{itemize}
+
+  Sometimes we can:
+  \begin{itemize}
+    \item Use slices [::] like we did for \texttt{str}
+    \item Use \texttt{len} to count items
+    \item Nest them inside each other
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{tuple}
+
+  \textbf{Purpose}: Unchangeable (usually small) ordered collection of items
+
+  \textbf{Syntax}: 
+  \begin{itemize}
+    \item \texttt{(`abc',)} 
+    \item \texttt{(`abc', `abc', 123)} 
+    \item \texttt{x = `abc', `abc', 123} or \texttt{return `abc', `abc', 123}
+  \end{itemize}
+
+  \textbf{Quirks}
+  \begin{itemize}
+    \item No ``augmented'' operations (+=, -=, etc.)
+    \item Has a ``named'' version (collections.namedtuple)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{list}
+
+   \textbf{Purpose}: Changeable, ordered collection of items
+
+   \textbf{Syntax}: 
+   \begin{itemize}
+     \item \texttt{[`abc']} 
+     \item \texttt{[`abc', `abc', 123]}
+     \item \texttt{list((`abc', `abc', 123))} turns into \texttt{[`abc', `abc', 123]}
+   \end{itemize}
+
+  \textbf{Quirks}
+  \begin{itemize}
+    \item Like a ``stack'': \texttt{list.append()} and \texttt{list.pop()}
+    \item += works with \texttt{str}
+    \item Can ``replace'' slices with different size slices 
+    \begin{lstlisting}
+      >>> x = [1, 2, 3, 4]
+      >>> x[1:3] = [6]
+      >>> x
+      [1, 6, 4]
+    \end{lstlisting}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Builtins}
+
+  \begin{itemize}
+    \item \texttt{any}
+    \item \texttt{all}
+    \item \texttt{max}
+    \item \texttt{min}
+    \item \texttt{reversed}
+    \item \texttt{sum}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{set} 
+
+  \textbf{Purpose}: Unique items, quick look-ups, like a mathematical set
+
+  \textbf{Syntax}: 
+  \begin{itemize}
+    \item \texttt{\{`abc'\}} 
+    \item \texttt{\{`abc', 1\}}
+    \item \texttt{set([`abc', `abc', 123])} turns into \texttt{\{`abc', 123\}}
+  \end{itemize}
+
+  \textbf{Quirks}
+  \begin{itemize}
+    \item Can use symbols or functions for mathematical operations
+      \begin{itemize}
+        \item \& is \texttt{set.intersection}
+	\item $\vert$ is \texttt{set.union}
+	\item \string^ is \texttt{set.symmetric\_difference}
+	\item $-$ is \texttt{set.difference}
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{dict}
+ 
+  \textbf{Purpose}: List with a customizable (non-number) index
+
+  \textbf{Syntax}: 
+  \begin{itemize}
+    \item \texttt{\{`abc': 123\}} 
+    \item \texttt{\{`abc': 1, `def': 1, `ghi': 2\}}
+    \item \texttt{dict([(`abc', 1), (`def', 1), (`ghi', 2)])}
+          turns into \texttt{\{`abc': 1, `def': 1, `ghi': 2\}}
+  \end{itemize}
+
+  \textbf{Quirks}
+  \begin{itemize}
+    \item Ordered in Python 3.6 (keys returned in order inserted)
+    \item Has a formally ordered version (collections.ordereddict)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Unpacking}
+
+  \begin{itemize}
+  \item Assign values directly to variables with one assignment
+    \begin{itemize}
+      \item \texttt{a, b, c = 1, 2, 3} is the same as \texttt{a = 1; b = 2; c = 3}
+      \item \texttt{a, b, c = [1, 2, 3]} is the same thing
+     \end{itemize}
+  \item * packs everything else into that variable
+    \begin{itemize}
+      \item \texttt{head, *body = [1, 2, 3]} $\rightarrow$ \texttt{head=1; body=[2, 3]}
+      \item \texttt{*body, tail = [1, 2, 3]} $\rightarrow$ \texttt{body=[1, 2]; tail=3}
+      \item \texttt{head, *body, tail = [1, 2, 3, 4]} $\rightarrow$ \texttt{head=1; body=[2, 3]; tail=4}
+     \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Comprehensions}
+
+  \textbf{Purpose}: Build a container concisely
+
+  \begin{itemize}
+    \item tuple: \texttt{tuple(i for i in range(3))}
+    \item list: \texttt{[x for x in range(3)]}
+    \item set: \texttt{\{x for x in range(3)\}}
+    \item dict: \texttt{\{k:v for k,v in [(`a',1), (`b',2), (`c',3)]\}}
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{generator}
+ 
+  \textbf{Purpose}: Use with large/unending collections 
+
+  \textbf{Syntax}: 
+  \begin{itemize}
+  \item \texttt{(i for i in range(10000))}
+
+  \item 
+
+  \begin{lstlisting}
+    def evens():
+      n = 0
+      while True:
+        n += 2
+	yield n
+  \end{lstlisting}
+
+  \end{itemize}
+
+  \textbf{Quirks}
+  \begin{itemize}
+    \item ``Consumed'' on use
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{map}
+
+  \textbf{Purpose}: Apply a function to every item in a collection
+
+  \textbf{Syntax}: 
+  \begin{itemize}
+    \item \texttt{map(int, [`1', `2', `3'])} turns \texttt{str} to \texttt{int}
+  \end{itemize}
+
+  \textbf{Quirks}
+  \begin{itemize}
+    \item Returns a \texttt{map} object, but can be cast to \texttt{list}
+    \item \texttt{[int(x) for x in (`1',`2',`3')]}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{filter}
+
+  \textbf{Purpose}: Choose elements from a collection
+
+  \textbf{Syntax}: 
+  \begin{itemize}
+    \item \texttt{filter(lambda x: x \% 2 == 1, range(10))} is odd numbers less than 10
+  \end{itemize}
+
+  \textbf{Quirks}
+  \begin{itemize}
+    \item Returns a \texttt{filter} object, but can be cast to \texttt{list}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{zip}
+
+  \textbf{Purpose}: Combine multiple sequences into one
+
+  \textbf{Syntax}: 
+  \begin{itemize}
+    \item \texttt{zip([`a',`b',`c'],(1,2,3))} creates tuples \texttt{(`a',1),(`b',2),(`c',3)}
+  \end{itemize}
+
+  \textbf{Quirks}
+  \begin{itemize}
+    \item Returns a \texttt{zip} object, but can be cast to \texttt{list}
+  \end{itemize}
+\end{frame}
+
+
+\end{document}
