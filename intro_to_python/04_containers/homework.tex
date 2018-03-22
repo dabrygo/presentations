@@ -1,0 +1,102 @@
+\documentclass{article}
+
+\begin{document}
+  
+  \begin{enumerate}
+  \item \textbf{Tuple}. Tuples are usually used for closely related
+  data that can be easily unpacked into variables or referenced by
+  position. Examples:
+  \begin{itemize}
+    \item \texttt{point = (1, 2)}
+    \item \texttt{huey, luey, duey = ('huey', 'luey', 'duey')}
+    \item \texttt{lla = (-35, 105, 2000); latitude = lla[0]}
+  \end{itemize}
+  Can you think of examples where you would use a tuple?
+
+  \item \textbf{List (1)}. Use \texttt{help} to figure out the difference between
+  \texttt{list.remove} and \texttt{list.pop}.
+
+  \item \textbf{List (2)}. Given the lists:
+  \begin{verbatim}
+    first = ['William', 'Warren', 'John', 'Franklin', 'John']
+    middle = ['Henry', 'Gamaliel', 'Calvin', 'Delano', 'Fitzgerald']
+    last = ['Harrison', 'Harding', 'Coolidge', 'Roosevelt', 'Kennedy']
+  \end{verbatim}
+  Use a loop to print out the names in the form: \texttt{Last, First M.}
+  Can you do it with and without \texttt{zip}? 
+
+  \item \textbf{Set}. You are given the words \textit{sassafras}
+  and \textit{fracases}. Use sets to programmatically determine:
+  \begin{enumerate}
+    \item The \textit{number} of unique letters in each word (remember to use \texttt{len})
+    \item Which and how many letters both words have in common 
+    \item Which and how many letters either word (but not both) have
+    \item Which and how many letters \textit{sassafras} has that \textit{fracases} doesn't
+    \item Which and how many letters \textit{fracases} has that \textit{sassafras} doesn't
+  \end{enumerate}
+  \textsc{Note}: We can cast a \texttt{str} to a \texttt{set} by using \texttt{set('aab')}
+
+  \item \textbf{Dict}. The \texttt{collections} module has a special \texttt{dict}
+  called \texttt{Counter}. The code:
+  \begin{verbatim}
+  from collections import Counter
+
+  c = Counter("aBacAb")
+  print(c)
+  \end{verbatim}
+  displays 
+  
+  \begin{center}
+    \texttt{Counter(\{'a': 2, 'B': 1, 'c':1, 'A': 1, 'b': 1\})}
+  \end{center}
+  
+  the count of each character (case-insensitive) in the string. We can
+  access the count of `a' by doing \texttt{c['a']}.
+
+  In genetic biology, the GC content of a DNA/RNA strand is used to classify
+  chromosomes. It is a percentage, the count of G's and C's of a chromosome
+  divided by its total length. Use \texttt{counter} and \texttt{len} to find
+  the GC content of a DNA (string of G,A,T,C) or RNA (string of G,A,U,C) strand
+  of your choice.
+
+  \item Recall the standard collection types:
+  \begin{itemize}
+    \item list
+    \item tuple/namedtuple
+    \item dict
+    \item set
+    \item generator
+  \end{itemize}
+  You're making a program for a public library.
+  Which data structure(s) might you use when the library wants:
+
+  \begin{enumerate}
+    \item A book to be a title, author, and ISBN
+    \item To know how many copies of each book they have
+    \item To check if a book is in the library/inventory
+    \item To search for text in books
+    \item To look up books by Dewey decimal number
+    \item To know what books are checked out on a given patron's card
+    \item To know what the most popular/checked-out books of the week were
+    \item To make a "first come, first served" hold list 
+    \item To find which patrons have copies of some book
+    \item To automatically limit the number of copies of a popular book 
+          that one patron/family can check out
+    \item To limit how long books (especially popular ones) can be checked out
+  \end{enumerate}
+
+  \textsc{Note}: These questions aren't meant to have objective answers.
+  There more to get you into the mode of thinking about the pros and cons
+  of the different collection types.
+
+  \item In lecture we noticed a list is like a ``stack''. A common example is
+  cafeteria trays, where the topmost tray is both the last item stacked and the
+  first tray to come off (Last In First Out). Another paradigm is the
+  ``queue,'' where the first item in is the first item out (First In First
+  Out), like customers in line at a bank. The deque (double-ended queue) from
+  the \texttt{collections} module has methods that let it behave like both a
+  ``stack'' and a ``queue''. Does knowing about this data structure change any
+  of your answers to the library question?
+  \end{enumerate}
+ 
+\end{document}
