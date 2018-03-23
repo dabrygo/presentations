@@ -41,10 +41,21 @@ print(sassafras - succotash, len(sassafras - succotash)) # d
 print(succotash - sassafras, len(succotash - sassafras)) # e
 
 # Problem 6
-from collections import Counter
+
+def gc_content(strand):
+    from collections import Counter
+    counter = Counter(strand)
+    g_count = counter['G']
+    c_count = counter['C']
+    gc_content = (g_count + c_count) / len(strand) * 100
+    print(f"GC Content of {strand} = {gc_content:.2f}%")
 dna = 'GATTACA'
-counter = Counter(dna)
-g_count = counter['G']
-c_count = counter['C']
-gc_content = (g_count + c_count) / len(dna) * 100
-print(f"GC Content of {dna} = {gc_content:.2f}%")
+gc_content(dna)
+
+##def strand(n, is_rna=False):
+##    import random
+##    alphabet = 'ACGU' if is_rna else 'ACGT'
+##    return ''.join([random.choice(alphabet) for i in range(n)])
+##gc_content(strand(100))
+##gc_content(strand(100, is_rna=True))
+
