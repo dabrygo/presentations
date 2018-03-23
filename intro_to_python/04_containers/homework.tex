@@ -1,5 +1,7 @@
 \documentclass{article}
 
+\usepackage{listings}
+
 \begin{document}
   
   \begin{enumerate}
@@ -16,34 +18,45 @@
   \item \textbf{List (1)}. Use \texttt{help} to figure out the difference between
   \texttt{list.remove} and \texttt{list.pop}.
 
-  \item \textbf{List (2)}. Given the lists:
-  \begin{verbatim}
+  \item \textbf{List (2)}. In a shell, perform the following:
+  \begin{lstlisting}
+  >>> x = [2, 0, 1]
+  >>> y = reversed(x)
+  >>> z = [2, 0, 1]
+  >>> z.reverse()
+  >>> print(x, y, z)
+  \end{lstlisting}
+  Based on this output, what do you expect to be the output of \texttt{sorted}
+  and \texttt{list.sort}?
+
+  \item \textbf{List (3)}. Given the lists:
+  \begin{lstlisting}
     first = ['William', 'Warren', 'John', 'Franklin', 'John']
     middle = ['Henry', 'Gamaliel', 'Calvin', 'Delano', 'Fitzgerald']
     last = ['Harrison', 'Harding', 'Coolidge', 'Roosevelt', 'Kennedy']
-  \end{verbatim}
+  \end{lstlisting}
   Use a loop to print out the names in the form: \texttt{Last, First M.}
   Can you do it with and without \texttt{zip}? 
 
   \item \textbf{Set}. You are given the words \textit{sassafras}
-  and \textit{fracases}. Use sets to programmatically determine:
+  and \textit{succotash}. Use sets to programmatically determine:
   \begin{enumerate}
     \item The \textit{number} of unique letters in each word (remember to use \texttt{len})
     \item Which and how many letters both words have in common 
     \item Which and how many letters either word (but not both) have
-    \item Which and how many letters \textit{sassafras} has that \textit{fracases} doesn't
-    \item Which and how many letters \textit{fracases} has that \textit{sassafras} doesn't
+    \item Which and how many letters \textit{sassafras} has that \textit{succotash} doesn't
+    \item Which and how many letters \textit{succotash} has that \textit{sassafras} doesn't
   \end{enumerate}
   \textsc{Note}: We can cast a \texttt{str} to a \texttt{set} by using \texttt{set('aab')}
 
   \item \textbf{Dict}. The \texttt{collections} module has a special \texttt{dict}
   called \texttt{Counter}. The code:
-  \begin{verbatim}
+  \begin{lstlisting}
   from collections import Counter
 
   c = Counter("aBacAb")
   print(c)
-  \end{verbatim}
+  \end{lstlisting}
   displays 
   
   \begin{center}
@@ -59,16 +72,9 @@
   the GC content of a DNA (string of G,A,T,C) or RNA (string of G,A,U,C) strand
   of your choice.
 
-  \item Recall the standard collection types:
-  \begin{itemize}
-    \item list
-    \item tuple/namedtuple
-    \item dict
-    \item set
-    \item generator
-  \end{itemize}
-  You're making a program for a public library.
-  Which data structure(s) might you use when the library wants:
+  \item Recall the standard collection types are \texttt{list,
+  tuple/namedtuple, dict, set, and generator}.  You're making a program for a
+  public library.  Which type(s) might you use when the library wants:
 
   \begin{enumerate}
     \item A book to be a title, author, and ISBN
@@ -89,14 +95,13 @@
   There more to get you into the mode of thinking about the pros and cons
   of the different collection types.
 
-  \item In lecture we noticed a list is like a ``stack''. A common example is
-  cafeteria trays, where the topmost tray is both the last item stacked and the
-  first tray to come off (Last In First Out). Another paradigm is the
-  ``queue,'' where the first item in is the first item out (First In First
-  Out), like customers in line at a bank. The deque (double-ended queue) from
-  the \texttt{collections} module has methods that let it behave like both a
-  ``stack'' and a ``queue''. Does knowing about this data structure change any
-  of your answers to the library question?
+  \item In lecture we said a list is like a ``stack''. A common example is
+  cafeteria trays: the \textit{last} item stacked (the top tray) is the first
+  tray to come off (Last In First Out). A similar idea is a ``queue'': the
+  \textit{first} item in is the first item out (First In First Out), like
+  customers in line at a bank. The \texttt{deque} (double-ended queue) from the
+  \texttt{collections} module can behave like both a ``stack'' and a ``queue''.
+  Can you use a \texttt{deque} to meet any of the library's wants?
   \end{enumerate}
  
 \end{document}
