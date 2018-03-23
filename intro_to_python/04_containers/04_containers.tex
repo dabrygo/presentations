@@ -84,6 +84,7 @@
     \item \texttt{max}
     \item \texttt{min}
     \item \texttt{reversed}
+    \item \texttt{sorted}
     \item \texttt{sum}
   \end{itemize}
 \end{frame}
@@ -109,6 +110,7 @@
 	\item \string^ is \texttt{set.symmetric\_difference}
 	\item $-$ is \texttt{set.difference}
       \end{itemize}
+    \item Has an immutable version with builtin \texttt{frozenset}
   \end{itemize}
 \end{frame}
 
@@ -221,7 +223,8 @@
   \textbf{Quirks}
   \begin{itemize}
     \item Returns a \texttt{filter} object, but can be cast to \texttt{list}
-  \end{itemize}
+    \item \texttt{[x for x in range(10) if x \% 2 == 1]}
+   \end{itemize}
 \end{frame}
 
 \begin{frame}
