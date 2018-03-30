@@ -48,6 +48,11 @@
     keyword expression:
       suite
   \end{lstlisting}
+
+  \begin{lstlisting}
+    if 1 + 2 == 3:
+      pass
+  \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -128,6 +133,113 @@
     d = {'a': 1, 'b': 2, 'c': 3}
     for key, value in d.items():
       print(f`Letter #{value}: {key}')
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Loop Control}
+
+  \begin{itemize}
+    \item \texttt{break}: stop iterating over loop
+    \item \texttt{continue}: go back to top of loop
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{\texttt{try-except}}
+
+  \begin{enumerate}
+    \item \texttt{try} a suite
+    \item If a problem, jump immediately to \texttt{except}
+  \end{enumerate}
+
+  \textbf{Multiple Exceptions}
+  \begin{lstlisting}
+  import math
+  try:
+    acos = math.acos(-1) 
+    print(acos)
+  except ValueError:
+    print(``Expected value to be between -1 and 1")
+  \end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{\texttt{try-except}}
+
+  \textbf{Multiple Exceptions}
+  \begin{lstlisting}
+  import math
+  value = some_function()
+  try:
+    sqrt = math.sqrt(value)
+    print(sqrt)
+  except TypeError:
+    print(``Expected value to be a number")
+  except ValueError:
+    print(``Square root of negative number")
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{\texttt{try-except}}
+
+  \textbf{Multiple Exceptions 2}
+  \begin{lstlisting}
+  import math
+  value = some_function()
+  try:
+    sqrt = math.sqrt(value)
+    print(sqrt)
+  except (TypeError, ValueError):
+    print(``Invalid input to math.sqrt")
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{\texttt{try-except}}
+
+  \textbf{Catch Any Error/Exception}
+  \begin{lstlisting}
+  import math
+  value = some_function()
+  try:
+    sqrt = math.sqrt(value)
+    print(sqrt)
+  except Exception:
+    print(``Error when evaluating math.sqrt")
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{\texttt{try-except}}
+
+  \textbf{Catch Any Error/Exception}
+  \begin{lstlisting}
+  import math
+  value = some_function()
+  try:
+    sqrt = math.sqrt(value)
+    print(sqrt)
+  except:
+    print(``Error when evaluating math.sqrt")
+  \end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{\texttt{try-except}}
+
+  \textbf{Assign Exception to Variable}
+  \begin{lstlisting}
+  import math
+  value = some_function()
+  try:
+    sqrt = math.sqrt(value)
+    print(sqrt)
+  except Exception as e:
+    print(e)
   \end{lstlisting}
 \end{frame}
 

@@ -17,6 +17,14 @@
       \textsc{idea}: Use \texttt{random.choice} to randomly choose an element
       from a collection.
 
+      \textsc{hint}: We can compare strings a user enters using \texttt{input} and $==$:
+      \begin{verbatim}name = input("Enter your name: ")
+	if name == "daniel":
+	  print("you are daniel")
+	else:
+	  print("not daniel")
+      \end{verbatim}
+
     \item The Fibonacci sequence is defined as $F_n = F_{n-2} + F_{n-1}$, where
     each element is the sum of the two previous and the first two elements are
     $F_1 = 1$ and $F_2 = 1$. The sequence starts like:
@@ -30,5 +38,37 @@
       def fibonacci(n):
         return 
     \end{verbatim}
+
+  \item Make a number-guessing game where the player has to find a number
+  the computer chooses from 1 to 100 using \texttt{random.randint}. As an
+  aid to the player, print when their guess is too high or too low.
+
+
+  \item This code is for an adventure game:
+  \begin{verbatim}
+  inventory = {'bread': 5, 'sword': 1, 'gold': 42}
+
+  def take(quantity, item):
+    if not any(inventory.values()):
+      raise Exception("I'm not carrying anything")
+    amount = inventory[item]
+    if quantity > amount:
+      raise ValueError(f"Can't take {quantity} {item}; I only have {amount}")
+    inventory[item] = amount - quantity
+  \end{verbatim}
+  
+  Using \texttt{try-except} handle the following sequence of calls gracefully, 
+  so that the inventory is "empty" (zeros for values) at the end:
+  \begin{verbatim}
+    take(2, 'sword')
+    take(5, 'bread')
+    take(1, 'kangaroo')
+    take(1, 'sword')
+    take(41, 'gold')
+    take(2, 'gold')
+    take(1, 'gold')
+    take(1, 'gold')
+    print(inventory)
+  \end{verbatim}
   \end{enumerate}
 \end{document}
