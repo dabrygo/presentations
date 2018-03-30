@@ -1,0 +1,135 @@
+\documentclass{beamer}
+
+%\usepackage{color}
+%usepackage{graphicx}
+%usepackage{hyperref}
+\usepackage{listings}
+%usepackage{minted}
+
+
+\title{IntroPy}
+\subtitle{Control Flow}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}
+  \frametitle{Control Flow in Python}
+
+  \begin{enumerate}
+    \item Conditional: \texttt{if-elif-else} 
+    \item Loops: \texttt{while} and \texttt{for}
+    \item Error handling: \texttt{try-except-finally}
+  \end{enumerate}
+
+  \textbf{NOT Keywords in Python}
+  \begin{enumerate}
+    \item \texttt{do-while}
+    \item \texttt{switch-case-default}
+    \item \texttt{until}
+  \end{enumerate}
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{General Syntax}
+
+  \begin{enumerate}
+    \item Blocks of related code are called a \textit{suite}
+    \item Indentation groups related statements
+    \item But indentation need only be shared for same \textit{suite} 
+    \item (Still good practice to be consistent...)
+    \item PEP 8 recommends expanding tabs and 4 spaces for each new level
+  \end{enumerate}
+
+  \textbf{Form}
+  \begin{lstlisting}
+    keyword expression:
+      suite
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{\texttt{If-Elif-Else}}
+
+  \begin{enumerate}
+    \item Each part introduces its own suite
+    \item Parentheses unnecessary around conditionals
+  \end{enumerate}
+
+  \textbf{Form}
+  \begin{lstlisting}
+    a = 1
+    if a < 0:
+      print("negative")
+    elif a > 0:
+      print("positive")
+    else:
+      print("zero")
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{\texttt{While}}
+
+  \begin{enumerate}
+    \item \texttt{while} loops have an optional \texttt{else}
+    \item \texttt{else} runs when condition \textit{evaluated} to be false
+    \item This includes when loop does not run at all
+    \item (Use of \texttt{else} here is rare and discouraged...)
+  \end{enumerate}
+
+  \textbf{Form}
+  \begin{lstlisting}
+    a = 0
+    b = 1
+    while a < 10:
+      print(a)
+      a += 1
+    else:
+      print(b)
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{\texttt{For}}
+
+  \begin{enumerate}
+    \item Also have an optional \texttt{else}
+    \item Tend to be used on collections, as \texttt{for-each} loops
+    \item But can behave like standard \texttt{for} loops using \texttt{range}
+  \end{enumerate}
+
+  \textbf{Form}
+  \begin{lstlisting}
+    for odd in range(1, 11, 2):
+      print(odd)
+    else:
+      print("end")
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{\texttt{For}}
+
+  \begin{enumerate}
+    \item Can iterate over more than one ``key'', like index and item from \texttt{enumerate}
+  \end{enumerate}
+
+  \textbf{Example 1}
+  \begin{lstlisting}
+    for i, letter in enumerate(`abc', start=1):
+      print(f`Letter #{i}: {letter}')
+  \end{lstlisting}
+
+  \textbf{Example 2}
+  \begin{lstlisting}
+    d = {'a': 1, 'b': 2, 'c': 3}
+    for key, value in d.items():
+      print(f`Letter #{value}: {key}')
+  \end{lstlisting}
+\end{frame}
+
+
+\end{document}
